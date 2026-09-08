@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="../tokens.css">
+<script src="../../../shared/local-design.global.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:var(--background-normal-alternative);-webkit-font-smoothing:antialiased}
+a{color:var(--primary-normal);text-decoration:none}
+a:hover{color:var(--primary-strong)}
+::-webkit-scrollbar{height:8px}
+</style>
+</helmet>
+<div style="font-family:var(--font-sans);color:var(--label-normal);padding:56px 0 96px">
+
+<div style="max-width:1220px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:12px">
+<div class="ty-caption1" style="color:var(--label-assistive);text-transform:uppercase;letter-spacing:0.08em">Sample Studio · Social Templates</div>
+<h1 class="ty-display3" style="margin:0;color:var(--label-strong)">인스타그램 콘텐츠 템플릿</h1>
+<p class="ty-body1" style="margin:0;color:var(--label-alternative);max-width:640px">스토리 · 릴스 · 캐러셀 · 피드 · 하이라이트 커버까지 대응하는 상황별 템플릿이에요. 브랜드·일정·수치·후기는 모두 배치 확인용 가상 예시입니다. 인스타그램은 화면 위에 프로필·캡션·버튼 같은 자체 UI를 얹기 때문에, 그 영역에 텍스트나 CTA가 걸치면 가려질 수 있어요. 아래 스위치로 템플릿 세이프존 가이드를 켜고 배치를 확인해보세요.</p>
+<div style="display:flex;align-items:center;gap:16px;margin-top:8px;padding:16px 20px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral);width:fit-content">
+<x-import component-from-global-scope="LOCALDS.Switch" checked="{{ safeZoneOn }}" onCheckedChange="{{ toggleSafeZone }}" hint-size="44px,26px"></x-import>
+<div>
+<div class="ty-label1" style="color:var(--label-normal)">세이프존 가이드 표시</div>
+<div class="ty-caption1" style="color:var(--label-assistive);margin-top:2px">빨간 영역은 인스타그램 UI가 콘텐츠를 가리는 구간이에요 (게시 전 참고용)</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:20px" class="ty-label2">
+<a href="#story-section">① 스토리 →</a>
+<a href="#reels-section">② 릴스 →</a>
+<a href="#carousel-section">③ 캐러셀 →</a>
+<a href="#feed-section">④ 피드(4:5) →</a>
+<a href="#highlight-section">⑤ 하이라이트 커버 →</a>
+</div>
+</div>
+
+<div id="story-section" style="max-width:1220px;margin:64px auto 0;padding:0 32px">
+<h2 class="ty-title2" style="margin:0 0 4px;color:var(--label-strong)">① 스토리 · 1080×1920</h2>
+<p class="ty-caption1" style="margin:0 0 28px;color:var(--label-assistive)">세이프존: 상단 250px · 하단 250px 제외 (중앙 1080×1420 안전 영역)</p>
+<div style="display:flex;flex-wrap:wrap;gap:32px">
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;background:var(--primary-normal)">
+<div style="position:absolute;top:280px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.red" size="medium" hint-size="auto,44px">마감임박</x-import></span></div>
+<div style="position:absolute;top:380px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:220px;line-height:0.95;letter-spacing:-0.04em;color:var(--static-white)">D-3</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:48px;letter-spacing:-0.02em;color:rgba(255,255,255,0.92);margin-top:20px">접수 마감까지</div>
+</div>
+<div style="position:absolute;top:720px;left:64px;right:64px">
+<div style="width:96px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);margin-bottom:32px"></div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:84px;line-height:1.2;letter-spacing:-0.02em;color:var(--static-white)">샘플컵 전국<br />농구대회</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
+<div style="padding:14px 26px;border-radius:999px;background:rgba(255,255,255,0.16);font-family:var(--font-sans);font-weight:600;font-size:30px;color:var(--static-white)">10.4(토)-10.5(일)</div>
+<div style="padding:14px 26px;border-radius:999px;background:rgba(255,255,255,0.16);font-family:var(--font-sans);font-weight:600;font-size:30px;color:var(--static-white)">샘플 실내체육관</div>
+<div style="padding:14px 26px;border-radius:999px;background:rgba(255,255,255,0.16);font-family:var(--font-sans);font-weight:600;font-size:30px;color:var(--static-white)">1박 2일 · 3경기 보장</div>
+</div>
+</div>
+<div style="position:absolute;bottom:300px;left:64px"><button style="height:88px;padding:0 52px;border:0;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);font-family:var(--font-sans);font-size:34px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.12)">지금 신청하기</button></div>
+<div style="position:absolute;bottom:266px;left:66px;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.55)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">① 마감임박 카운트다운</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">대회·모집 공지 · 컬러 배경</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="story-travel-photo" shape="rect" placeholder="샘플 지역 체육관·경기 사진" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 900 }}" hint-size="100%,900px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;top:280px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.cyan" size="medium" hint-size="auto,44px">샘플 지역 농구 여행</x-import></span></div>
+<div style="position:absolute;bottom:430px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:66px;line-height:1.3;letter-spacing:-0.02em;color:var(--static-white)">체육관부터 온천·장어까지<br />샘플 지역에서 한 번에</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.88);margin-top:20px">팀 단위 주말 방문 · 예약·결제는 각 업체에 직접 진행해요</div>
+</div>
+<div style="position:absolute;bottom:280px;left:64px"><button style="height:88px;padding:0 52px;border:0;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);font-family:var(--font-sans);font-size:34px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.12)">맞춤 일정 보기</button></div>
+<div style="position:absolute;top:280px;right:64px;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.65)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">② 여행 홍보 · 사진형</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">샘플 지역 농구 여행 · 사진 배경</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:280px;left:0;right:0;text-align:center"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="outlined" color="accent" accentColor="semantic.accent.foreground.violet" size="small" hint-size="auto,36px">참가팀 후기</x-import></span></div>
+<div style="position:absolute;top:380px;left:0;right:0;display:flex;justify-content:center"><image-slot id="story-quote-photo" shape="circle" placeholder="참가팀 단체사진" style="width:280px;height:280px"></image-slot></div>
+<div style="position:absolute;top:770px;left:110px;right:110px;text-align:center;font-family:var(--font-sans);font-weight:700;font-size:48px;line-height:1.5;letter-spacing:-0.015em;color:var(--label-strong)">“여기에 사용 허락을 받은 실제 후기를 넣으세요. 이 문장은 배치 확인을 위한 가상 예시입니다.”</div>
+<div style="position:absolute;top:1160px;left:0;right:0;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-normal)">샘플 팀 A</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:27px;color:var(--label-assistive);margin-top:8px">참가팀 · 12명</div>
+</div>
+<div style="position:absolute;top:1330px;left:0;right:0;display:flex;justify-content:center;gap:10px"><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import></div>
+<div style="position:absolute;top:1404px;left:0;right:0;text-align:center;font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-assistive)">샘플컵 참가팀 만족도</div>
+<div style="position:absolute;bottom:280px;left:0;right:0;text-align:center;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:var(--label-assistive)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">③ 참가팀 후기 인용구</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">후기·리뷰 · 인물사진+Quote</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:280px;left:64px;right:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="outlined" color="accent" accentColor="semantic.primary.normal" size="small" hint-size="auto,36px">대회 당일 일정</x-import></span>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:60px;letter-spacing:-0.025em;color:var(--label-strong);margin-top:20px">샘플컵 타임테이블</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:var(--label-alternative);margin-top:8px">10.4(토) 기준</div>
+</div>
+<div style="position:absolute;top:520px;left:64px;right:64px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;gap:24px;padding:28px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:88px;height:88px;border-radius:22px;background:rgba(0,102,255,0.08);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="document" size="44" hint-size="44px,44px" style="color:var(--primary-normal)"></x-import></div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:26px;color:var(--primary-normal);letter-spacing:0.04em">09:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong);margin-top:4px">입촌·팀 등록</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">체육관 로비 데스크</div></div></div>
+<div style="display:flex;align-items:center;gap:24px;padding:28px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:88px;height:88px;border-radius:22px;background:rgba(0,102,255,0.08);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="bell" size="44" hint-size="44px,44px" style="color:var(--primary-normal)"></x-import></div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:26px;color:var(--primary-normal);letter-spacing:0.04em">10:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong);margin-top:4px">개회식</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">선수단 소개</div></div></div>
+<div style="display:flex;align-items:center;gap:24px;padding:28px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:88px;height:88px;border-radius:22px;background:rgba(0,102,255,0.08);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="play" size="44" hint-size="44px,44px" style="color:var(--primary-normal)"></x-import></div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:26px;color:var(--primary-normal);letter-spacing:0.04em">11:00 – 17:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong);margin-top:4px">조별예선·토너먼트</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">전 팀 3경기 보장</div></div></div>
+<div style="display:flex;align-items:center;gap:24px;padding:28px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:88px;height:88px;border-radius:22px;background:rgba(255,146,0,0.12);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="44" hint-size="44px,44px" style="color:var(--status-cautionary)"></x-import></div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:26px;color:var(--primary-normal);letter-spacing:0.04em">18:30</div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong);margin-top:4px">시상식</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">대상 외 60개 부문 시상</div></div></div>
+</div>
+<div style="position:absolute;bottom:280px;left:64px;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:var(--label-assistive)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">④ 대회 당일 타임테이블</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">일정 안내 · 리스트형</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:280px;left:64px;right:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.orange" size="small" hint-size="auto,36px">샘플컵 하이라이트</x-import></span>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:60px;letter-spacing:-0.025em;color:var(--label-strong);margin-top:20px">지난 대회, 이만큼 뜨거웠어요</div>
+</div>
+<div style="position:absolute;top:480px;left:64px;right:64px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<image-slot id="story-gallery-1" shape="rounded" radius="16" placeholder="경기 사진 1" style="width:100%;height:230px"></image-slot>
+<image-slot id="story-gallery-2" shape="rounded" radius="16" placeholder="경기 사진 2" style="width:100%;height:230px"></image-slot>
+<image-slot id="story-gallery-3" shape="rounded" radius="16" placeholder="경기 사진 3" style="width:100%;height:230px"></image-slot>
+<image-slot id="story-gallery-4" shape="rounded" radius="16" placeholder="경기 사진 4" style="width:100%;height:230px"></image-slot>
+</div>
+<div style="position:absolute;top:1010px;left:64px;right:64px;transform:scale(1.3);transform-origin:top center"><x-import component-from-global-scope="LOCALDS.StatRow" items="{{ statsS5 }}" hint-size="100%,120px"></x-import></div>
+<div style="position:absolute;bottom:280px;left:0;right:0;text-align:center;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:var(--label-assistive)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">⑤ 하이라이트 갤러리</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">이벤트 하이라이트 · 2×2 그리드</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;background:var(--primary-normal)">
+<div style="position:absolute;top:280px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.green" size="medium" hint-size="auto,44px">대회 결과</x-import></span></div>
+<div style="position:absolute;top:400px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:44px;letter-spacing:-0.02em;color:rgba(255,255,255,0.82)">제3회 샘플컵</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:92px;line-height:1.15;letter-spacing:-0.03em;color:var(--static-white);margin-top:12px">우승팀을<br />발표합니다</div>
+</div>
+<div style="position:absolute;top:820px;left:64px;right:64px;background:rgba(255,255,255,0.12);border-radius:32px;padding:56px 52px;text-align:center">
+<div style="display:flex;justify-content:center;margin-bottom:28px"><div style="width:140px;height:140px;border-radius:36px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="72" hint-size="72px,72px" style="color:var(--static-white)"></x-import></div></div>
+<div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:rgba(255,255,255,0.75)">대상 · 우승</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:72px;letter-spacing:-0.02em;color:var(--static-white);margin-top:12px">샘플 팀 A</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.8);margin-top:16px">전승 우승 · MVP 샘플 선수</div>
+</div>
+<div style="position:absolute;bottom:300px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.8)">참가하신 32팀 모두 고생 많으셨습니다</div>
+<div style="position:absolute;bottom:266px;left:66px;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.55)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">⑥ 우승팀 발표</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">대회 결과 · 컬러 배경</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:280px;left:64px;right:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="outlined" color="accent" accentColor="semantic.primary.normal" size="small" hint-size="auto,36px">자주 묻는 질문</x-import></span>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:60px;letter-spacing:-0.025em;color:var(--label-strong);margin-top:20px">참가 전에<br />많이 물어보세요</div></div>
+<div style="position:absolute;top:560px;left:64px;right:64px;display:flex;flex-direction:column;gap:28px">
+<div style="background:var(--background-elevated-normal);border-radius:28px;padding:40px 44px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">참가비는 얼마인가요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:32px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">팀당 300,000원이에요. 입금 확인 후 참가가 확정돼요.</div></div>
+<div style="background:var(--background-elevated-normal);border-radius:28px;padding:40px 44px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">몇 명까지 등록하나요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:32px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">팀당 최대 12명까지 로스터 등록이 가능해요.</div></div>
+<div style="background:var(--background-elevated-normal);border-radius:28px;padding:40px 44px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">주차는 가능한가요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:32px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">체육관 부설 주차장을 무료로 이용하실 수 있어요.</div></div>
+</div>
+<div style="position:absolute;bottom:280px;left:64px;font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:var(--label-assistive)">{{ watermark }}</div>
+<dc-import name="IGSafeZoneOverlay" kind="story" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">⑦ 자주 묻는 질문</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">FAQ · Q&amp;A 리스트</div></div>
+</div>
+
+</div>
+</div>
+
+<div id="reels-section" style="max-width:1220px;margin:64px auto 0;padding:0 32px">
+<h2 class="ty-title2" style="margin:0 0 4px;color:var(--label-strong)">② 릴스 커버 · 1080×1920</h2>
+<p class="ty-caption1" style="margin:0 0 28px;color:var(--label-assistive)">세이프존: 상단 250px · 하단 340px · 우측 120px 제외 (계정명·캡션·아이콘 열)</p>
+<div style="display:flex;flex-wrap:wrap;gap:32px">
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="reel-highlight-photo" shape="rect" placeholder="경기 액션 사진" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 760 }}" hint-size="100%,760px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;top:50%;left:44%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="play" size="72" hint-size="72px,72px" style="color:var(--static-white)"></x-import></div>
+<div style="position:absolute;top:280px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.red" size="small" hint-size="auto,36px">HIGHLIGHT</x-import></span></div>
+<div style="position:absolute;bottom:420px;left:64px;right:180px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:70px;line-height:1.25;letter-spacing:-0.02em;color:var(--static-white)">3쿼터, 역전 버저비터</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.85);margin-top:16px">샘플컵 8강전 하이라이트</div>
+<div style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.6);margin-top:16px">{{ watermark }}</div>
+</div>
+<dc-import name="IGSafeZoneOverlay" kind="reels" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">① 경기 하이라이트 커버</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">이벤트 하이라이트 · 풀블리드 사진</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="reel-interview-photo" shape="rect" placeholder="선수 인터뷰 사진 (세로)" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="top" size="{{ 520 }}" hint-size="100%,520px" style="position:absolute;left:0;right:0;top:0"></x-import>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 640 }}" hint-size="100%,640px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;top:50%;left:44%;transform:translate(-50%,-50%);width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="play" size="56" hint-size="56px,56px" style="color:var(--static-white)"></x-import></div>
+<div style="position:absolute;top:290px;left:64px;right:180px;font-family:var(--font-sans);font-weight:700;font-size:56px;line-height:1.28;letter-spacing:-0.015em;color:var(--static-white)">"이런 대회면 내년에도 옵니다"</div>
+<div style="position:absolute;bottom:400px;left:64px;right:180px">
+<span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.violet" size="xsmall" hint-size="auto,28px">참가팀 후기</x-import></span>
+<div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--static-white);margin-top:18px">샘플 팀 A · 주장 샘플 선수</div>
+<div style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.6);margin-top:14px">{{ watermark }}</div>
+</div>
+<dc-import name="IGSafeZoneOverlay" kind="reels" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">② 참가팀 인터뷰 커버</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">후기·리뷰 · 인물 세로사진</div></div>
+</div>
+
+<div style="width:320px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:320px;height:568.889px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1920px;transform:scale(0.296296);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="reel-vlog-photo" shape="rect" placeholder="여행 코스 영상 썸네일" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 760 }}" hint-size="100%,760px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;top:50%;left:44%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="play" size="72" hint-size="72px,72px" style="color:var(--static-white)"></x-import></div>
+<div style="position:absolute;top:280px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.cyan" size="small" hint-size="auto,36px">TRAVEL VLOG</x-import></span></div>
+<div style="position:absolute;bottom:420px;left:64px;right:180px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:70px;line-height:1.25;letter-spacing:-0.02em;color:var(--static-white)">온천까지 챙긴 1박 2일</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.85);margin-top:16px">샘플 지역 농구 여행 브이로그</div>
+<div style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.6);margin-top:16px">{{ watermark }}</div>
+</div>
+<dc-import name="IGSafeZoneOverlay" kind="reels" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">③ 여행 브이로그 커버</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">샘플 지역 농구 여행 · 풀블리드 사진</div></div>
+</div>
+
+</div>
+</div>
+
+<div id="carousel-section" style="max-width:1220px;margin:64px auto 0;padding:0 32px">
+<h2 class="ty-title2" style="margin:0 0 4px;color:var(--label-strong)">③ 캐러셀 · 1080×1080</h2>
+<p class="ty-caption1" style="margin:0 0 28px;color:var(--label-assistive)">세이프존: 중앙 1000×1000 (여백 40px) — 첫 장 비율이 이후 장에도 적용돼요</p>
+
+<div style="margin-bottom:48px">
+<h3 class="ty-headline1" style="margin:0 0 16px;color:var(--label-strong)">대회 모집 안내 (5장)</h3>
+<div style="display:flex;gap:24px;overflow-x:auto;padding-bottom:8px">
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">모집중</div></div>
+<div style="position:absolute;top:230px;left:64px;right:64px">
+<div style="width:88px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);margin-bottom:28px"></div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:80px;letter-spacing:-0.02em;line-height:1.2;color:var(--static-white)">샘플컵 전국 농구대회</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.88);margin-top:20px">생활체육 동호인이라면 누구나</div>
+</div>
+<div style="position:absolute;bottom:80px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.85)">10.4(토)-10.5(일) · 샘플 실내체육관</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">1/5</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">1. 표지</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:64px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">1박 2일 일정</div>
+<div style="position:absolute;top:180px;left:64px;right:64px;display:flex;flex-direction:column;gap:28px">
+<div style="background:var(--background-normal-alternative);border-radius:28px;padding:40px 44px">
+<div style="display:flex;align-items:center;gap:20px">
+<div style="padding:10px 26px;border-radius:999px;background:var(--primary-normal);color:var(--static-white);font-family:var(--font-sans);font-weight:700;font-size:28px">DAY 1</div>
+<div style="font-family:var(--font-sans);font-weight:600;font-size:30px;color:var(--label-alternative)">10.4(토)</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:26px;margin-top:34px">
+<div style="display:flex;align-items:baseline;gap:28px"><div style="width:110px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:30px;color:var(--primary-normal);font-variant-numeric:tabular-nums">13:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-strong)">조별예선 시작</div></div>
+<div style="display:flex;align-items:baseline;gap:28px"><div style="width:110px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:30px;color:var(--primary-normal);font-variant-numeric:tabular-nums">18:30</div><div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-strong)">저녁 · 장어거리</div></div>
+<div style="display:flex;align-items:baseline;gap:28px"><div style="width:110px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:30px;color:var(--primary-normal);font-variant-numeric:tabular-nums">21:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-strong)">온천 숙소 체크인</div></div>
+</div>
+</div>
+<div style="background:var(--background-normal-alternative);border-radius:28px;padding:40px 44px">
+<div style="display:flex;align-items:center;gap:20px">
+<div style="padding:10px 26px;border-radius:999px;background:rgba(0,102,255,0.08);color:var(--primary-normal);font-family:var(--font-sans);font-weight:700;font-size:28px">DAY 2</div>
+<div style="font-family:var(--font-sans);font-weight:600;font-size:30px;color:var(--label-alternative)">10.5(일)</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:26px;margin-top:34px">
+<div style="display:flex;align-items:baseline;gap:28px"><div style="width:110px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:30px;color:var(--primary-normal);font-variant-numeric:tabular-nums">09:30</div><div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-strong)">8강 · 준결승</div></div>
+<div style="display:flex;align-items:baseline;gap:28px"><div style="width:110px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:30px;color:var(--primary-normal);font-variant-numeric:tabular-nums">14:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-strong)">결승전 · 시상식</div></div>
+</div>
+</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">2/5</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">2. 일정</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:64px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">시상 내역</div>
+<div style="position:absolute;top:180px;left:64px;right:64px">
+<div style="background:var(--primary-normal);border-radius:28px;padding:44px;display:flex;align-items:center;gap:32px">
+<div style="width:104px;height:104px;border-radius:26px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="56" hint-size="56px,56px" style="color:var(--static-white)"></x-import></div>
+<div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:28px;color:rgba(255,255,255,0.78)">대상 · 1팀</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:44px;letter-spacing:-0.02em;color:var(--static-white);margin-top:8px">상금 100만원 + 트로피</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+<div style="background:var(--background-normal-alternative);border-radius:24px;padding:36px 40px">
+<div style="font-family:var(--font-sans);font-weight:600;font-size:26px;color:var(--label-alternative)">우수상 · 2팀</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:34px;color:var(--label-strong);margin-top:10px">부문별 트로피</div>
+</div>
+<div style="background:var(--background-normal-alternative);border-radius:24px;padding:36px 40px">
+<div style="font-family:var(--font-sans);font-weight:600;font-size:26px;color:var(--label-alternative)">MVP · 베스트5</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:34px;color:var(--label-strong);margin-top:10px">개인상 시상</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;margin-top:52px">
+<div style="flex:1;text-align:center"><div style="font-family:var(--font-sans);font-weight:700;font-size:64px;letter-spacing:-0.03em;color:var(--label-strong)">60<span style="font-size:34px;font-weight:600;color:var(--label-alternative)">개+</span></div><div style="font-family:var(--font-sans);font-weight:500;font-size:26px;color:var(--label-alternative);margin-top:6px">시상 부문</div></div>
+<div style="width:2px;height:72px;background:var(--line-normal-neutral)"></div>
+<div style="flex:1;text-align:center"><div style="font-family:var(--font-sans);font-weight:700;font-size:64px;letter-spacing:-0.03em;color:var(--label-strong)">3<span style="font-size:34px;font-weight:600;color:var(--label-alternative)">경기</span></div><div style="font-family:var(--font-sans);font-weight:500;font-size:26px;color:var(--label-alternative);margin-top:6px">전 팀 보장</div></div>
+<div style="width:2px;height:72px;background:var(--line-normal-neutral)"></div>
+<div style="flex:1;text-align:center"><div style="font-family:var(--font-sans);font-weight:700;font-size:64px;letter-spacing:-0.03em;color:var(--label-strong)">32<span style="font-size:34px;font-weight:600;color:var(--label-alternative)">팀</span></div><div style="font-family:var(--font-sans);font-weight:500;font-size:26px;color:var(--label-alternative);margin-top:6px">참가 규모</div></div>
+</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">3/5</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">3. 시상 내역</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:64px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">참가 방법</div>
+<div style="position:absolute;top:220px;left:64px;right:64px"><div style="position:absolute;top:24px;bottom:24px;left:38px;width:4px;background:var(--line-normal-neutral)"></div><div style="position:relative;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;align-items:center;gap:28px"><div style="width:80px;height:80px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:36px;box-shadow:0 0 0 12px var(--background-normal-normal)">1</div><div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong)">팀 신청서 제출</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">이름·연락처·팀 로스터 작성</div></div></div>
+<div style="display:flex;align-items:center;gap:28px"><div style="width:80px;height:80px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:36px;box-shadow:0 0 0 12px var(--background-normal-normal)">2</div><div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong)">참가비 입금</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">팀당 300,000원 · 입금 확인 후 확정</div></div></div>
+<div style="display:flex;align-items:center;gap:28px"><div style="width:80px;height:80px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:36px;box-shadow:0 0 0 12px var(--background-normal-normal)">3</div><div><div style="font-family:var(--font-sans);font-weight:600;font-size:38px;color:var(--label-strong)">대진표 확인</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:6px">마감 후 조 편성·일정 공지</div></div></div>
+</div></div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">4/5</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">4. 참가 방법</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">마감임박</div></div>
+<div style="position:absolute;top:220px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:200px;line-height:0.95;letter-spacing:-0.04em;color:var(--static-white)">D-3</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:44px;letter-spacing:-0.02em;color:rgba(255,255,255,0.92);margin-top:24px">접수 마감까지 얼마 남지 않았어요</div>
+</div>
+<div style="position:absolute;bottom:170px;left:64px"><button style="height:88px;padding:0 52px;border:0;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);font-family:var(--font-sans);font-size:34px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.12)">지금 신청하기</button></div>
+<div style="position:absolute;bottom:80px;left:64px;font-family:var(--font-sans);font-weight:500;font-size:28px;color:rgba(255,255,255,0.75)">문의 · 카카오채널 @sample-studio</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">5/5</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">5. 마감·CTA</div>
+</div>
+
+</div>
+</div>
+
+<div style="margin-bottom:48px">
+<h3 class="ty-headline1" style="margin:0 0 16px;color:var(--label-strong)">여행 코스 소개 (3장)</h3>
+<div style="display:flex;gap:24px;overflow-x:auto;padding-bottom:8px">
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="carousel-trip-cover" shape="rect" placeholder="샘플 지역 전경·체육관 사진" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 460 }}" hint-size="100%,460px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;bottom:80px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:70px;letter-spacing:-0.025em;color:var(--static-white)">샘플 지역 농구 여행</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.88);margin-top:16px">팀 단위 주말 코스 · 체육관+온천+맛집</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">1/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">1. 표지</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:56px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">이런 코스로 준비했어요</div>
+<div style="position:absolute;top:190px;left:64px;right:64px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:30px;padding:30px;background:var(--background-normal-alternative);border-radius:28px">
+<image-slot id="course-gym" shape="rounded" radius="20" placeholder="체육관 사진" style="width:132px;height:132px;flex:none"></image-slot>
+<div style="flex:1;min-width:0">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:25px;color:var(--label-assistive)">체육관 · 샘플 지역</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong);margin-top:8px">체육관 대관</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:27px;color:var(--label-alternative);margin-top:8px">풀코트 2면 · 6시간 대관 가능</div>
+</div>
+<div style="padding:12px 22px;border-radius:999px;background:rgba(0,102,255,0.08);color:var(--primary-normal);font-family:var(--font-sans);font-weight:600;font-size:25px;flex:none">예약가능</div>
+</div>
+<div style="display:flex;align-items:center;gap:30px;padding:30px;background:var(--background-normal-alternative);border-radius:28px">
+<image-slot id="course-hotel" shape="rounded" radius="20" placeholder="온천호텔 사진" style="width:132px;height:132px;flex:none"></image-slot>
+<div style="flex:1;min-width:0">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:25px;color:var(--label-assistive)">숙소 · 샘플 지역</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong);margin-top:8px">샘플 온천호텔</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:27px;color:var(--label-alternative);margin-top:8px">경기 후 회복에 좋은 게르마늄 온천</div>
+</div>
+<div style="padding:12px 22px;border-radius:999px;background:rgba(0,191,64,0.10);color:var(--status-positive);font-family:var(--font-sans);font-weight:600;font-size:25px;flex:none">예약가능</div>
+</div>
+<div style="display:flex;align-items:center;gap:30px;padding:30px;background:var(--background-normal-alternative);border-radius:28px">
+<image-slot id="course-eel" shape="rounded" radius="20" placeholder="장어거리 사진" style="width:132px;height:132px;flex:none"></image-slot>
+<div style="flex:1;min-width:0">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:25px;color:var(--label-assistive)">음식점 · 샘플 지역</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong);margin-top:8px">샘플 지역 장어거리</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:27px;color:var(--label-alternative);margin-top:8px">복분자와 함께, 단체석 20인 이상</div>
+</div>
+<div style="padding:12px 22px;border-radius:999px;background:rgba(255,66,66,0.10);color:var(--status-negative);font-family:var(--font-sans);font-weight:600;font-size:25px;flex:none">예약필요</div>
+</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">2/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">2. 코스 리스트</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:210px;left:0;right:0;display:flex;justify-content:center"><div style="width:120px;height:120px;border-radius:30px;background:var(--primary-normal);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,102,255,0.28)"><x-import component-from-global-scope="LOCALDS.Icon" name="calendar" size="60" hint-size="60px,60px" style="color:var(--static-white)"></x-import></div></div>
+<div style="position:absolute;top:380px;left:64px;right:64px;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">맞춤 일정, 지금 신청하세요</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:var(--label-alternative);margin-top:20px">체육관 대관부터 식사·숙소까지 한 번에 안내해드려요</div>
+</div>
+<div style="position:absolute;top:640px;left:0;right:0;display:flex;justify-content:center;transform:scale(1.7)"><x-import component-from-global-scope="LOCALDS.Button" variant="solid" color="primary" size="large" hint-size="auto,52px">일정 신청하기</x-import></div>
+<div style="position:absolute;bottom:80px;left:0;right:0;text-align:center;font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-assistive)">예약과 결제는 각 업체에 직접 진행해요</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">3/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">3. CTA</div>
+</div>
+
+</div>
+</div>
+
+<div style="margin-bottom:48px">
+<h3 class="ty-headline1" style="margin:0 0 16px;color:var(--label-strong)">대회 결과 발표 (3장)</h3>
+<div style="display:flex;gap:24px;overflow-x:auto;padding-bottom:8px">
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">대회 결과</div></div>
+<div style="position:absolute;top:300px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:36px;color:rgba(255,255,255,0.82)">제3회 샘플컵 전국 농구대회</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:96px;line-height:1.12;letter-spacing:-0.03em;color:var(--static-white);margin-top:16px">최종 결과를<br />발표합니다</div>
+</div>
+<div style="position:absolute;bottom:80px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.85)">10.5(일) · 샘플 실내체육관</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">1/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">1. 표지</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:64px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">수상 팀</div>
+<div style="position:absolute;top:190px;left:64px;right:64px">
+<div style="background:var(--primary-normal);border-radius:28px;padding:44px;display:flex;align-items:center;gap:32px">
+<div style="width:104px;height:104px;border-radius:26px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="56" hint-size="56px,56px" style="color:var(--static-white)"></x-import></div>
+<div><div style="font-family:var(--font-sans);font-weight:700;font-size:28px;color:rgba(255,255,255,0.78)">대상 · 우승</div><div style="font-family:var(--font-sans);font-weight:700;font-size:48px;letter-spacing:-0.02em;color:var(--static-white);margin-top:8px">샘플 팀 A</div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+<div style="background:var(--background-normal-alternative);border-radius:24px;padding:36px 40px"><div style="font-family:var(--font-sans);font-weight:600;font-size:26px;color:var(--label-alternative)">준우승</div><div style="font-family:var(--font-sans);font-weight:700;font-size:34px;color:var(--label-strong);margin-top:10px">샘플 팀 B</div></div>
+<div style="background:var(--background-normal-alternative);border-radius:24px;padding:36px 40px"><div style="font-family:var(--font-sans);font-weight:600;font-size:26px;color:var(--label-alternative)">MVP</div><div style="font-family:var(--font-sans);font-weight:700;font-size:34px;color:var(--label-strong);margin-top:10px">샘플 선수</div></div>
+</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">2/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">2. 수상 팀</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center"><div style="width:120px;height:120px;border-radius:30px;background:rgba(0,191,64,0.12);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="circle-check" size="60" hint-size="60px,60px" style="color:var(--status-positive)"></x-import></div></div>
+<div style="position:absolute;top:400px;left:64px;right:64px;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">함께해주셔서 고맙습니다</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:var(--label-alternative);margin-top:20px">32팀 · 480명이 만든 이틀이었어요. 다음 샘플컵에서 또 만나요</div>
+</div>
+<div style="position:absolute;top:680px;left:0;right:0;display:flex;justify-content:center;transform:scale(1.7)"><x-import component-from-global-scope="LOCALDS.Button" variant="solid" color="primary" size="large" hint-size="auto,52px">다음 대회 알림 받기</x-import></div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">3/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">3. 감사·CTA</div>
+</div>
+
+</div>
+</div>
+
+<div style="margin-bottom:48px">
+<h3 class="ty-headline1" style="margin:0 0 16px;color:var(--label-strong)">자주 묻는 질문 (4장)</h3>
+<div style="display:flex;gap:24px;overflow-x:auto;padding-bottom:8px">
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">FAQ</div></div>
+<div style="position:absolute;top:300px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:96px;line-height:1.12;letter-spacing:-0.03em;color:var(--static-white)">참가 전<br />많이 물어보는<br />질문</div>
+</div>
+<div style="position:absolute;bottom:80px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.85)">샘플컵 · 농구 여행 공통</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">1/4</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">1. 표지</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:56px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:52px;letter-spacing:-0.02em;color:var(--label-strong)">참가 · 비용</div>
+<div style="position:absolute;top:180px;left:64px;right:64px;display:flex;flex-direction:column;gap:28px">
+<div style="background:var(--background-normal-alternative);border-radius:26px;padding:38px 42px"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong)">참가비는 얼마인가요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:30px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">팀당 300,000원이며, 입금 확인 후 참가가 확정돼요.</div></div>
+<div style="background:var(--background-normal-alternative);border-radius:26px;padding:38px 42px"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong)">무엇을 준비해가야 하나요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:30px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">팀 유니폼과 개인 운동화만 준비하시면 돼요. 공은 제공돼요.</div></div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">2/4</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">2. 참가·비용</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:56px;left:64px;font-family:var(--font-sans);font-weight:700;font-size:52px;letter-spacing:-0.02em;color:var(--label-strong)">현장 안내</div>
+<div style="position:absolute;top:180px;left:64px;right:64px;display:flex;flex-direction:column;gap:28px">
+<div style="background:var(--background-normal-alternative);border-radius:26px;padding:38px 42px"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong)">몇 명까지 등록되나요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:30px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">팀당 최대 12명까지 로스터 등록이 가능해요.</div></div>
+<div style="background:var(--background-normal-alternative);border-radius:26px;padding:38px 42px"><div style="display:flex;align-items:center;gap:20px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;font-size:30px;flex:none">Q</div><div style="font-family:var(--font-sans);font-weight:700;font-size:36px;color:var(--label-strong)">주차는 가능한가요?</div></div><div style="font-family:var(--font-sans);font-weight:500;font-size:30px;line-height:1.5;color:var(--label-alternative);margin-top:18px;padding-left:76px">체육관 부설 주차장을 무료로 이용하실 수 있어요.</div></div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">3/4</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">3. 현장 안내</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center"><div style="width:120px;height:120px;border-radius:30px;background:rgba(0,102,255,0.08);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="bubble" size="60" hint-size="60px,60px" style="color:var(--primary-normal)"></x-import></div></div>
+<div style="position:absolute;top:400px;left:64px;right:64px;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">더 궁금한 점이 있나요?</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:var(--label-alternative);margin-top:20px">인스타 DM·카카오채널 @sample-studio로 편하게 물어보세요</div>
+</div>
+<div style="position:absolute;top:680px;left:0;right:0;display:flex;justify-content:center;transform:scale(1.7)"><x-import component-from-global-scope="LOCALDS.Button" variant="solid" color="primary" size="large" hint-size="auto,52px">문의하기</x-import></div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">4/4</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">4. CTA</div>
+</div>
+
+</div>
+</div>
+
+<div>
+<h3 class="ty-headline1" style="margin:0 0 16px;color:var(--label-strong)">대회 당일 일정 (3장)</h3>
+<div style="display:flex;gap:24px;overflow-x:auto;padding-bottom:8px">
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.blue" size="small" hint-size="auto,36px">대회 일정</x-import></span></div>
+<div style="position:absolute;top:200px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:72px;line-height:1.25;letter-spacing:-0.02em;color:var(--static-white)">샘플컵 대회<br />당일 일정</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.88);margin-top:24px">10.4(토) 하루 진행 순서</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:rgba(23,23,25,0.4);color:var(--static-white);font-size:28px;font-weight:600" class="ty-caption2">1/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">1. 표지</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:50px;left:56px;font-family:var(--font-sans);font-weight:700;font-size:48px;letter-spacing:-0.02em;color:var(--label-strong)">타임테이블</div>
+<div style="position:absolute;top:170px;left:80px;right:64px">
+<div style="position:absolute;top:28px;bottom:28px;left:26px;width:3px;background:var(--line-normal-neutral)"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:44px">
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:rgba(0,102,255,0.08);color:var(--primary-normal);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:24px;box-shadow:0 0 0 10px var(--background-normal-normal)">1</div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">09:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">입촌 · 팀 등록</div></div></div>
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:rgba(0,102,255,0.08);color:var(--primary-normal);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:24px;box-shadow:0 0 0 10px var(--background-normal-normal)">2</div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">10:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">개회식</div></div></div>
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:24px;box-shadow:0 0 0 10px var(--background-normal-normal)">3</div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">11:00</div><div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">조별예선</div><div style="font-family:var(--font-sans);font-weight:500;font-size:26px;color:var(--label-alternative);margin-top:6px">전 팀 3경기 보장</div></div></div></div>
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:24px;box-shadow:0 0 0 10px var(--background-normal-normal)">4</div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">15:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">8강 · 준결승</div></div></div>
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:24px;box-shadow:0 0 0 10px var(--background-normal-normal)">5</div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">17:00</div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">결승전</div></div></div>
+<div style="display:flex;align-items:center;gap:36px"><div style="width:56px;height:56px;border-radius:50%;background:rgba(255,146,0,0.12);color:var(--status-cautionary);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 0 10px var(--background-normal-normal)"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="30" hint-size="30px,30px" style="color:var(--status-cautionary)"></x-import></div><div style="display:flex;align-items:baseline;gap:24px"><div style="width:96px;flex:none;font-family:var(--font-sans);font-weight:700;font-size:28px;color:var(--primary-normal);font-variant-numeric:tabular-nums">18:30</div><div><div style="font-family:var(--font-sans);font-weight:600;font-size:33px;color:var(--label-strong)">시상식</div><div style="font-family:var(--font-sans);font-weight:500;font-size:26px;color:var(--label-alternative);margin-top:6px">대상 외 60개 부문 시상</div></div></div></div>
+</div>
+</div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">2/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">2. 타임라인</div>
+</div>
+
+<div style="width:300px;flex:0 0 auto;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:300px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1080px;transform:scale(0.277778);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:220px;left:0;right:0;display:flex;justify-content:center"><div style="width:120px;height:120px;border-radius:30px;background:rgba(0,102,255,0.08);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="bell" size="60" hint-size="60px,60px" style="color:var(--primary-normal)"></x-import></div></div>
+<div style="position:absolute;top:390px;left:64px;right:64px;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:56px;letter-spacing:-0.025em;color:var(--label-strong)">일정 안내가 필요하신가요</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:var(--label-alternative);margin-top:20px">경기 시간·장소는 대회 3일 전 문자로 다시 안내해드려요</div>
+</div>
+<div style="position:absolute;top:650px;left:0;right:0;display:flex;justify-content:center;transform:scale(1.7)"><x-import component-from-global-scope="LOCALDS.Button" variant="outlined" color="primary" size="large" hint-size="auto,52px">전체 일정 문의하기</x-import></div>
+<div style="position:absolute;bottom:36px;right:36px;padding:10px 20px;border-radius:var(--radius-round);background:var(--fill-strong);color:var(--label-alternative);font-size:28px;font-weight:600" class="ty-caption2">3/3</div>
+<dc-import name="IGSafeZoneOverlay" kind="carousel" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div class="ty-caption1" style="color:var(--label-alternative)">3. CTA</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="feed-section" style="max-width:1220px;margin:64px auto 0;padding:0 32px">
+<h2 class="ty-title2" style="margin:0 0 4px;color:var(--label-strong)">④ 피드 이미지 · 1080×1350 (4:5)</h2>
+<p class="ty-caption1" style="margin:0 0 28px;color:var(--label-assistive)">세이프존: 중앙 1080×1080 크롭을 가정한 보수적 가이드예요 — 실제 앱의 그리드 비율과 미리보기를 게시 전에 확인하세요</p>
+<div style="display:flex;flex-wrap:wrap;gap:32px">
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">모집중</div></div>
+<div style="position:absolute;top:280px;left:64px;right:64px">
+<div style="width:88px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);margin-bottom:28px"></div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:76px;line-height:1.22;letter-spacing:-0.02em;color:var(--static-white)">샘플컵 전국<br />농구대회</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.88);margin-top:24px">생활체육 동호인이라면 누구나 참가할 수 있어요</div>
+</div>
+<div style="position:absolute;bottom:280px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.85)">10.4(토)-10.5(일) · 샘플 실내체육관 · 1박 2일</div>
+<div style="position:absolute;bottom:150px;left:64px"><button style="height:88px;padding:0 52px;border:0;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);font-family:var(--font-sans);font-size:34px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.12)">지금 신청하기</button></div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">① 대회 모집 공지</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">피드 게시물 · 컬러 배경</div></div>
+</div>
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<image-slot id="feed-highlight-photo" shape="rect" placeholder="경기 액션 사진" style="position:absolute;inset:0"></image-slot>
+<x-import component-from-global-scope="LOCALDS.Gradient" direction="bottom" size="{{ 700 }}" hint-size="100%,700px" style="position:absolute;left:0;right:0;bottom:0"></x-import>
+<div style="position:absolute;top:80px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.orange" size="small" hint-size="auto,36px">샘플컵 하이라이트</x-import></span></div>
+<div style="position:absolute;bottom:120px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:700;font-size:64px;line-height:1.28;letter-spacing:-0.02em;color:var(--static-white)">이만큼 뜨거웠던<br />지난 대회</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.88);margin-top:20px">32팀 · 480명 참가 · 시상 60개+</div>
+</div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">② 하이라이트 사진</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">이벤트 하이라이트 · 풀블리드</div></div>
+</div>
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:150px;left:0;right:0;text-align:center"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="outlined" color="accent" accentColor="semantic.accent.foreground.violet" size="small" hint-size="auto,36px">참가팀 후기</x-import></span></div>
+<div style="position:absolute;top:250px;left:0;right:0;display:flex;justify-content:center"><image-slot id="feed-quote-photo" shape="circle" placeholder="참가팀 단체사진" style="width:260px;height:260px"></image-slot></div>
+<div style="position:absolute;top:610px;left:100px;right:100px;text-align:center;font-family:var(--font-sans);font-weight:700;font-size:44px;line-height:1.5;letter-spacing:-0.015em;color:var(--label-strong)">“직접 받은 후기를 여기에 넣으세요. 지금 문장은 배치 확인용 가상 예시입니다.”</div>
+<div style="position:absolute;top:900px;left:0;right:0;text-align:center">
+<div style="font-family:var(--font-sans);font-weight:600;font-size:32px;color:var(--label-normal)">샘플 팀 B</div>
+<div style="font-family:var(--font-sans);font-weight:500;font-size:27px;color:var(--label-assistive);margin-top:8px">참가팀 · 10명</div>
+</div>
+<div style="position:absolute;top:1060px;left:0;right:0;display:flex;justify-content:center;gap:10px"><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="40" hint-size="40px,40px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="40" hint-size="40px,40px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="40" hint-size="40px,40px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="40" hint-size="40px,40px" style="color:var(--status-cautionary)"></x-import><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="40" hint-size="40px,40px" style="color:var(--status-cautionary)"></x-import></div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">③ 참가팀 후기 카드</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">후기·리뷰 · 인물사진+Quote</div></div>
+</div>
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--primary-normal)">
+<div style="position:absolute;top:80px;left:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:30px;padding:12px 26px;border-radius:var(--radius-round);background:var(--static-white);color:var(--primary-normal);width:fit-content">대회 결과</div></div>
+<div style="position:absolute;top:240px;left:64px;right:64px">
+<div style="font-family:var(--font-sans);font-weight:500;font-size:34px;color:rgba(255,255,255,0.82)">제3회 샘플컵 전국 농구대회</div>
+<div style="font-family:var(--font-sans);font-weight:700;font-size:80px;line-height:1.18;letter-spacing:-0.03em;color:var(--static-white);margin-top:14px">우승팀을<br />발표합니다</div>
+</div>
+<div style="position:absolute;top:560px;left:64px;right:64px;background:rgba(255,255,255,0.12);border-radius:32px;padding:52px;display:flex;align-items:center;gap:36px">
+<div style="width:140px;height:140px;border-radius:34px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="72" hint-size="72px,72px" style="color:var(--static-white)"></x-import></div>
+<div><div style="font-family:var(--font-sans);font-weight:600;font-size:30px;color:rgba(255,255,255,0.75)">대상 · 우승</div><div style="font-family:var(--font-sans);font-weight:700;font-size:64px;letter-spacing:-0.02em;color:var(--static-white);margin-top:8px">샘플 팀 A</div><div style="font-family:var(--font-sans);font-weight:500;font-size:30px;color:rgba(255,255,255,0.8);margin-top:10px">전승 우승 · MVP 샘플 선수</div></div>
+</div>
+<div style="position:absolute;bottom:150px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:32px;color:rgba(255,255,255,0.85)">참가하신 32팀 모두 고생 많으셨습니다</div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">④ 우승팀 발표</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">대회 결과 · 컬러 배경</div></div>
+</div>
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--background-normal-alternative)">
+<div style="position:absolute;top:80px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="solid" color="accent" accentColor="semantic.accent.foreground.cyan" size="small" hint-size="auto,36px">농구 여행 · 상시 모집</x-import></span></div>
+<div style="position:absolute;top:200px;left:64px;right:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:66px;line-height:1.2;letter-spacing:-0.025em;color:var(--label-strong)">주말 팀 여행<br />이렇게 신청해요</div></div>
+<div style="position:absolute;top:440px;left:64px;right:64px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:28px;padding:32px 36px;background:var(--background-elevated-normal);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:76px;height:76px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:34px">1</div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">일정 문의</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:4px">인원·날짜를 알려주세요</div></div></div>
+<div style="display:flex;align-items:center;gap:28px;padding:32px 36px;background:var(--background-elevated-normal);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:76px;height:76px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:34px">2</div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">맞춤 일정 받기</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:4px">체육관+온천+맛집 코스 제안</div></div></div>
+<div style="display:flex;align-items:center;gap:28px;padding:32px 36px;background:var(--background-elevated-normal);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line-normal-neutral)"><div style="width:76px;height:76px;border-radius:50%;background:var(--primary-normal);color:var(--static-white);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--font-sans);font-weight:700;font-size:34px">3</div><div><div style="font-family:var(--font-sans);font-weight:700;font-size:38px;color:var(--label-strong)">업체 예약</div><div style="font-family:var(--font-sans);font-weight:500;font-size:28px;color:var(--label-alternative);margin-top:4px">각 업체에 직접 예약·결제</div></div></div>
+</div>
+<div style="position:absolute;bottom:120px;left:64px;right:64px;font-family:var(--font-sans);font-weight:500;font-size:30px;color:var(--label-assistive)">예약과 결제는 각 업체에 직접 진행해요</div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">⑤ 농구 여행 예약 안내</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">상시 모집 · 3단계 안내</div></div>
+</div>
+
+<div style="width:240px;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:240px;height:300px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-strong)">
+<div style="position:absolute;top:0;left:0;width:1080px;height:1350px;transform:scale(0.222222);transform-origin:top left;position:relative;background:var(--background-normal-normal)">
+<div style="position:absolute;top:80px;left:64px"><span style="zoom:2.8;display:inline-block"><x-import component-from-global-scope="LOCALDS.ContentBadge" variant="outlined" color="accent" accentColor="semantic.primary.normal" size="small" hint-size="auto,36px">함께하는 곳</x-import></span></div>
+<div style="position:absolute;top:190px;left:64px;right:64px"><div style="font-family:var(--font-sans);font-weight:700;font-size:62px;line-height:1.2;letter-spacing:-0.025em;color:var(--label-strong)">샘플컵을 함께 만드는<br />후원·협력사</div></div>
+<div style="position:absolute;top:420px;left:64px;right:64px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<image-slot id="feed-sponsor-1" shape="rounded" radius="20" placeholder="후원사 로고 1" style="width:100%;height:200px"></image-slot>
+<image-slot id="feed-sponsor-2" shape="rounded" radius="20" placeholder="후원사 로고 2" style="width:100%;height:200px"></image-slot>
+<image-slot id="feed-sponsor-3" shape="rounded" radius="20" placeholder="후원사 로고 3" style="width:100%;height:200px"></image-slot>
+<image-slot id="feed-sponsor-4" shape="rounded" radius="20" placeholder="후원사 로고 4" style="width:100%;height:200px"></image-slot>
+<image-slot id="feed-sponsor-5" shape="rounded" radius="20" placeholder="후원사 로고 5" style="width:100%;height:200px"></image-slot>
+<image-slot id="feed-sponsor-6" shape="rounded" radius="20" placeholder="후원사 로고 6" style="width:100%;height:200px"></image-slot>
+</div>
+<div style="position:absolute;bottom:120px;left:64px;right:64px;text-align:center;font-family:var(--font-sans);font-weight:500;font-size:30px;color:var(--label-assistive)">샘플 지역 · 샘플 체육회와 함께합니다</div>
+<dc-import name="IGSafeZoneOverlay" kind="feed" visible="{{ safeZoneOn }}" style="position:absolute;inset:0;pointer-events:none" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+<div><div class="ty-label1" style="color:var(--label-normal)">⑥ 후원·협력사 안내</div><div class="ty-caption1" style="color:var(--label-alternative);margin-top:2px">파트너 · 로고 그리드</div></div>
+</div>
+
+</div>
+
+<div id="highlight-section" style="max-width:1220px;margin:64px auto 0;padding:0 32px">
+<h2 class="ty-title2" style="margin:0 0 4px;color:var(--label-strong)">⑤ 하이라이트 커버 · 1080×1080 (원형 크롭)</h2>
+<p class="ty-caption1" style="margin:0 0 28px;color:var(--label-assistive)">프로필에 상시 노출되는 원형 커버예요. 아이콘은 정중앙에 두고, 커버 이름은 인스타그램 하이라이트 제목으로 짧게 입력하세요</p>
+<div style="display:flex;flex-wrap:wrap;gap:40px 44px;padding:36px 40px;background:var(--background-elevated-normal);border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px var(--line-normal-neutral);width:fit-content">
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--primary-normal);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="crown" size="440" hint-size="440px,440px" style="color:var(--static-white)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">대회</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--line-normal-neutral),var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--static-white);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="calendar" size="440" hint-size="440px,440px" style="color:var(--primary-normal)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">농구 여행</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--primary-normal);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="star-fill" size="440" hint-size="440px,440px" style="color:var(--static-white)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">참가 후기</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--line-normal-neutral),var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--static-white);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="bell" size="440" hint-size="440px,440px" style="color:var(--primary-normal)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">공지</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--primary-normal);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="circle-question" size="440" hint-size="440px,440px" style="color:var(--static-white)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">FAQ</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--line-normal-neutral),var(--shadow-normal)"><div style="width:1080px;height:1080px;transform:scale(0.138889);transform-origin:top left;background:var(--static-white);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="LOCALDS.Icon" name="coins" size="440" hint-size="440px,440px" style="color:var(--primary-normal)"></x-import></div></div><div class="ty-label2" style="color:var(--label-normal)">후원사</div></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:1000},&quot;showSafeZoneDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;세이프존&quot;},&quot;brandWatermark&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Sample Studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;브랜드&quot;}}">
+class Component extends DCLogic {
+  state = { safeZoneOn: null };
+  renderVals() {
+    const safeZoneOn = this.state.safeZoneOn === null ? (this.props.showSafeZoneDefault ?? false) : this.state.safeZoneOn;
+    return {
+      safeZoneOn,
+      toggleSafeZone: (v) => this.setState({ safeZoneOn: v }),
+      watermark: this.props.brandWatermark || 'Sample Studio',
+      statsS5: [
+        { id: 'teams', value: '32팀', label: '참가' },
+        { id: 'players', value: '480명', label: '참가 인원' },
+        { id: 'awards', value: '60개+', label: '시상 부문' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

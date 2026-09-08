@@ -17,7 +17,7 @@ Treat this repository's source and docs as an independent foundation SSOT. Do no
    - success condition
    - confirmed constraints and what is still unknown
      If an unknown would change the hierarchy or the success condition, confirm it first instead of filling it in.
-3. Classify the surface as `product`, `marketing`, `admin/data`, `deck`, or `social-content`. For `deck` and `social-content`, the dedicated skill (deck-system / content-system) leads; this skill supplies only the visual-foundation evidence.
+3. Classify the surface as `product`, `marketing`, `admin/data`, `deck`, or `social-content`. For `deck` and `social-content`, the dedicated skill (`skills/deck-system/SKILL.md` / `skills/content-system/SKILL.md`) leads; this skill supplies only the visual-foundation evidence.
 4. Read `guidance/composition.md` and its matching template for page-level work. If the consuming project has a brand/domain extension, read its brand doc. For page-level work also read its composition doc and the matching template. Brand rules (mark colors, brand color usage, voice) are defined there, not here.
 5. Find the real candidates — do not guess from memory:
    - components: `packages/wds/src/components/`
@@ -53,3 +53,9 @@ Treat this repository's source and docs as an independent foundation SSOT. Do no
 - `docs/data` — local design and platform usage docs
 - `guidance/composition.md` and `guidance/templates/` - local page composition guidance
 - `packages/local-design` - optional generic composition helpers
+
+- `skills/content-system/SKILL.md` — social-content composition, channel templates and safe-zone QA
+- `skills/deck-system/SKILL.md` — slide composition, typesetting and rendered QA
+- `shared/` — common browser assets; build with `pnpm build` before previewing templates
+
+Writing assistance is optional: use the separately installed [Writing System](https://github.com/seeknowzip/writing-system-public) when available, or edit the copy directly using the consuming project's voice.

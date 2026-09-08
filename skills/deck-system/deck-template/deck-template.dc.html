@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Sample Studio is fictional. All figures, places, people, claims and quotations are layout examples, not actual business records. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+:root{
+  --t-hero:192px; --t-jumbo:120px; --t-display:104px; --t-headline:88px; --t-stat:76px; --t-title:64px; --t-stat-sm:60px; --t-sub:44px; --t-lead:38px; --t-body:32px; --t-small:27px; --t-micro:24px;
+  --pad-x:110px; --pad-t:92px; --pad-b:76px; --gap-title:48px; --gap-item:24px;
+  /* Values bound to design-system semantic tokens (via ../tokens.css) where the token value is identical;
+     the hex after the comma is the fallback and must equal the token. Alpha variants stay literal — deliberate
+     presentation-contrast adjustments (see deck-template/CLAUDE.md §4).
+     벤톤 — DS label 토큰 값 그대로 (흰 대지 전제로 고정값 사용)
+     --ink = label-normal / --ink-mid = label-neutral 88% / --ink-soft 72% (본문·캡션, 4.5:1) / --ink-faint 55% (보조 라벨, 3:1)
+     DS의 label-alternative 61% · label-assistive 28%보다 진하게 잡았습니다 — 발표 화면 대비 기준을 맞추기 위한 의도적 조정 */
+  --ink:var(--semantic-label-normal,#171719); --ink-mid:rgba(46,47,51,0.88); --ink-soft:rgba(55,56,60,0.72); --ink-faint:rgba(55,56,60,0.55);
+  /* 큰 장식 마크 전용(번호·연산자·화살표). 작은 본문/출처에는 쓰지 않습니다. */
+  --mark:rgba(55,56,60,0.56);
+  /* 챕터 identity — 흰 배경에서 모두 4.5:1 이상 */
+  --ch1:var(--semantic-accent-foreground-blue,#005EEB); --ch2:#006F82; --ch3:var(--semantic-accent-foreground-violet,#5B37ED); --ch4:#006E25;
+  --ch1-bg:#EAF2FE; --ch2-bg:#DEFAFF; --ch3-bg:#F0ECFE; --ch4-bg:#D9FFE6;
+  /* 차트 계열 — 직접 라벨은 항상 함께 */
+  --s1:var(--semantic-primary-normal,#0066FF); --s2:var(--semantic-accent-foreground-cyan,#0098B2); --s3:var(--semantic-accent-foreground-violet,#5B37ED); --s4:var(--semantic-accent-foreground-orange,#D17600); --ctx:#8A8D94;
+  --tint-ink:#005EEB; --tint-weak:rgba(0,102,255,0.05); --tint-line:rgba(0,102,255,0.20);
+  --ok-ink:#006E25; --warn-ink:#9C5800; --bad-ink:#B00C0C; --bad:var(--semantic-status-negative,#FF4242);
+  --ok-bg:rgba(0,191,64,0.12); --warn-bg:rgba(255,146,0,0.14); --bad-bg:rgba(255,66,66,0.12);
+  --brand:var(--semantic-primary-normal,#0066FF); --brand-deep:var(--semantic-primary-heavy,#0054D1); --brand-tint:#EAF2FE;
+  --surf-alt:var(--semantic-background-normal-alternative,#F7F7F8); --line:rgba(112,115,124,0.22); --line-soft:rgba(112,115,124,0.16); --fill:rgba(112,115,124,0.08);
+  --pos:var(--semantic-status-positive,#00BF40); --warn:var(--semantic-status-cautionary,#FF9200);
+}
+body{margin:0;font-family:var(--font-sans);color:var(--ink);background:#0F0F10;-webkit-font-smoothing:antialiased;word-break:keep-all}
+section,section *{word-break:keep-all}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--brand-deep);text-decoration:underline}
+section{color:var(--ink)}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="01 표지 · 기본" data-speaker-notes="표지 기본형. 문서 종류(사업계획서/제휴 제안서 등)와 제출처, 날짜만 바꿔 쓰세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#171719;color:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:20px">
+    <img src="../../../shared/sample-logo.svg" alt="샘플 심볼" style="width:56px;height:56px;filter:invert(1)">
+    <span style="font-family:var(--font-display);font-size:var(--t-body);font-weight:700;letter-spacing:-0.01em">Sample Studio</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:32px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;color:var(--brand);text-transform:uppercase">Business Plan 2027</div>
+    <h1 style="margin:0;font-size:var(--t-display);font-weight:700;letter-spacing:-0.032em;line-height:1.12;text-wrap:pretty">농구로 사람을 부르고,<br>샘플시에 머물게 합니다</h1>
+    <p style="margin:0;font-size:var(--t-lead);font-weight:500;line-height:1.5;color:rgba(255,255,255,0.66);max-width:1100px">Sample Studio 2027 사업계획서 · 가상 예시</p>
+  </div>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.16);padding-top:28px">
+    <span style="font-size:var(--t-small);color:rgba(255,255,255,0.61)">샘플시 운영 부서</span>
+    <span style="font-size:var(--t-small);color:rgba(255,255,255,0.61)">2026. 08.</span>
+  </div>
+</section>
+
+<section data-label="02 사용 안내" data-speaker-notes="이 템플릿의 사용 규칙. 실제 문서를 만들 때는 이 슬라이드를 삭제하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">How to use</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">이 견본집 사용법</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:32px">
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:var(--t-sub);font-weight:700;color:var(--brand)">01</div>
+      <div style="font-size:var(--t-lead);font-weight:600">필요한 레이아웃만 복제하세요</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">왼쪽 슬라이드 목록에서 오른쪽 클릭 → 복제. 안내 슬라이드(02~05, 37~40)를 지우고 쓰지 않는 레이아웃을 삭제하면 그대로 완성된 문서가 됩니다.</p>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:var(--t-sub);font-weight:700;color:var(--brand)">02</div>
+      <div style="font-size:var(--t-lead);font-weight:600">본문 텍스트는 직접 고쳐 쓰세요</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">모든 문구는 화면에서 바로 클릭해 수정할 수 있어요. 예시 숫자는 실제 수치로 교체하면 됩니다.</p>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:var(--t-sub);font-weight:700;color:var(--brand)">03</div>
+      <div style="font-size:var(--t-lead);font-weight:600">사진은 자리에 끌어다 놓으면 채워져요</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">회색 이미지 자리에 파일을 드래그하면 바로 들어갑니다. 체육관·경기·샘플시 자원 사진을 권장해요.</p>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:var(--t-sub);font-weight:700;color:var(--brand)">04</div>
+      <div style="font-size:var(--t-lead);font-weight:600">색과 글자 크기는 한 번에 조절돼요</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">Tweaks에서 포인트 컬러·글자 배율·영문 병기 표시를 바꾸면 전체 슬라이드에 함께 적용됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="03 용도별 목차 A" data-speaker-notes="사업계획서·제휴 제안서를 만들 때 권장하는 슬라이드 순서." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Recommended structure 1 / 2</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">용도별 권장 목차 ①</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:56px">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="display:inline-block;padding:8px 18px;border-radius:999px;background:var(--brand);color:#FFFFFF;font-size:var(--t-micro);font-weight:600">사업계획서</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">14~18장 · 투자 / 지원사업</span></div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:var(--t-small);line-height:1.5">
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">01</span><span>표지 · 기본</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">02</span><span>목차</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">03</span><span>문제-해결 2단 · 핵심 메시지</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">04</span><span>시장 규모 · 지표 4-up · 막대 차트</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">05</span><span>사업 구조 3-포인트 · 프로세스 5단계</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">06</span><span>수익구조 · 사업비 예산표</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">07</span><span>로드맵 · 팀 소개</span></li>
+        <li style="display:flex;gap:18px"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">08</span><span>맺음말 · 연락처</span></li>
+      </ol>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="display:inline-block;padding:8px 18px;border-radius:999px;background:var(--brand);color:#FFFFFF;font-size:var(--t-micro);font-weight:600">제휴 제안서</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">8~12장 · 숙박 / 식당 / 온천</span></div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:var(--t-small);line-height:1.5">
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">01</span><span>표지 · 이미지형</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">02</span><span>샘플은 어떤 팀을 데려오나 (지표 4-up)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">03</span><span>이미지 + 텍스트 좌우</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">04</span><span>제휴 조건 · 정산 구조</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">05</span><span>업체가 얻는 것 (기대효과 카드)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">06</span><span>참여 업체 후기 · 파트너 목록</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">07</span><span>진행 절차 3단계</span></li>
+        <li style="display:flex;gap:18px"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">08</span><span>요청사항 체크리스트 · 연락처</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section data-label="04 용도별 목차 B" data-speaker-notes="정책사업 제안서·서비스 소개서를 만들 때 권장하는 슬라이드 순서." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Recommended structure 2 / 2</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">용도별 권장 목차 ②</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:56px">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="display:inline-block;padding:8px 18px;border-radius:999px;background:#171719;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">정책사업 제안서</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">16~20장 · 샘플시 / 샘플지역</span></div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:var(--t-small);line-height:1.5">
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">01</span><span>표지 · 기본 (제출처 명기)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">02</span><span>추진 배경 (문제-해결 2단)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">03</span><span>지역 현황 지표 · 진행 바 비교</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">04</span><span>사업 개요 · 추진 체계 (조직도)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">05</span><span>연차별 추진 일정표 · 로드맵</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">06</span><span>사업비 예산표 · 비교표</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">07</span><span>기대효과 KPI · 성과 관리 방안</span></li>
+        <li style="display:flex;gap:18px"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">08</span><span>맺음말 · 연락처</span></li>
+      </ol>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="display:inline-block;padding:8px 18px;border-radius:999px;background:#171719;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">서비스 소개서</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">8~10장 · 동호인 팀 대상</span></div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:var(--t-small);line-height:1.5">
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">01</span><span>표지 · 이미지형</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">02</span><span>핵심 메시지 한 문장</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">03</span><span>두 가지 프로그램 (3-포인트 카드)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">04</span><span>1박 2일 일정 (타임라인)</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">05</span><span>샘플시 자원 이미지 3-up</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">06</span><span>참가비 · 포함 사항 표</span></li>
+        <li style="display:flex;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">07</span><span>참가 팀 후기</span></li>
+        <li style="display:flex;gap:18px"><span style="color:var(--ink-faint);font-weight:600;min-width:38px">08</span><span>신청 절차 3단계 · 연락처</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section data-label="05 디자인 기본" data-speaker-notes="색·타이포 기준. 새 슬라이드를 만들 때 이 값만 지키면 톤이 유지됩니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Design basics</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">색과 글자 기준</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="font-size:var(--t-body);font-weight:600">컬러</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+        <div style="display:flex;flex-direction:column;gap:12px"><div style="height:88px;border-radius:14px;background:var(--brand)"></div><div style="font-size:var(--t-micro);font-weight:600">Primary</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">강조 · 데이터 · CTA</div></div>
+        <div style="display:flex;flex-direction:column;gap:12px"><div style="height:88px;border-radius:14px;background:#171719"></div><div style="font-size:var(--t-micro);font-weight:600">Ink</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">본문 · 표지 · 간지</div></div>
+        <div style="display:flex;flex-direction:column;gap:12px"><div style="height:88px;border-radius:14px;background:var(--brand-tint)"></div><div style="font-size:var(--t-micro);font-weight:600">Blue Tint</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">강조 블록 배경</div></div>
+        <div style="display:flex;flex-direction:column;gap:12px"><div style="height:88px;border-radius:14px;background:var(--surf-alt);box-shadow:inset 0 0 0 1px var(--line-soft)"></div><div style="font-size:var(--t-micro);font-weight:600">Surface</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">카드 · 표 헤더</div></div>
+      </div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">한 장에 배경색은 최대 2개까지. 그라디언트와 그림자는 쓰지 않습니다.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="font-size:var(--t-body);font-weight:600">타입 스케일 · Pretendard</div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-micro);color:var(--ink-faint);min-width:130px">Display 104 · Headline 88</span><span style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em">표지 헤드라인</span></div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-micro);color:var(--ink-faint);min-width:130px">Title 64 · Stat 76 / 60</span><span style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.028em">슬라이드 제목</span></div>
+        <div style="display:flex;align-items:baseline;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-micro);color:var(--ink-faint);min-width:130px">Lead 38</span><span style="font-size:var(--t-body);font-weight:600">소제목 · 카드 제목</span></div>
+        <div style="display:flex;align-items:baseline;gap:24px"><span style="font-size:var(--t-micro);color:var(--ink-faint);min-width:130px">Body 32 / 27 · Micro 24</span><span style="font-size:var(--t-small);font-weight:500;color:var(--ink-mid)">본문과 표 안의 글자</span></div>
+      </div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">발표 화면 기준 24px 미만은 쓰지 않습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="06 간지 · 다크" data-speaker-notes="섹션 구분 간지 A형(다크). 큰 번호 + 섹션명 + 한 줄 요약." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#171719;color:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:36px">
+  <div style="font-size:var(--t-jumbo);font-weight:700;line-height:1;color:var(--brand);letter-spacing:-0.032em">01</div>
+  <h2 style="margin:0;font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1.16">사업 개요</h2>
+  <p style="margin:0;font-size:var(--t-lead);font-weight:500;line-height:1.5;color:rgba(255,255,255,0.61);max-width:1000px">샘플이 무엇을 하는 회사이고, 왜 지금 샘플시인지</p>
+</section>
+
+<section data-label="07 간지 · 블루" data-speaker-notes="섹션 구분 간지 B형(블루). 다크형과 번갈아 쓰면 리듬이 생깁니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--brand);color:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:36px">
+  <div style="font-size:var(--t-jumbo);font-weight:700;line-height:1;color:rgba(255,255,255,0.5);letter-spacing:-0.032em">02</div>
+  <h2 style="margin:0;font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1.16">시장과 근거</h2>
+  <p style="margin:0;font-size:var(--t-lead);font-weight:500;line-height:1.5;color:rgba(255,255,255,0.78);max-width:1000px">생활체육 동호인 시장 규모와 샘플시의 방문 여건</p>
+</section>
+
+<section data-label="08 간지 · 라이트" data-speaker-notes="섹션 구분 간지 C형(라이트). 문서 후반부 섹션에 쓰면 무게가 가벼워집니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--surf-alt);display:flex;flex-direction:column;justify-content:center;gap:36px">
+  <div style="font-size:var(--t-jumbo);font-weight:700;line-height:1;color:var(--brand);letter-spacing:-0.032em">03</div>
+  <h2 style="margin:0;font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1.16">실행 계획</h2>
+  <p style="margin:0;font-size:var(--t-lead);font-weight:500;line-height:1.5;color:var(--ink-soft);max-width:1000px">일정, 조직, 사업비, 그리고 성과 관리</p>
+</section>
+
+<section data-label="09 표지 · 이미지형" data-speaker-notes="이미지 표지. 사진을 드래그해 넣으면 아래 어둡게 깔린 층 위로 글자가 유지됩니다." style="box-sizing:border-box;height:100%;position:relative;overflow:hidden;background:#171719">
+  <div style="position:absolute;inset:0">
+    <image-slot id="cover-hero" shape="rect" fit="cover" placeholder="표지 사진 · 경기 장면 권장"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 45%,rgba(0,0,0,0.82) 100%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;box-sizing:border-box;padding:var(--pad-t) var(--pad-x) var(--pad-b);display:flex;flex-direction:column;justify-content:space-between;color:#FFFFFF;pointer-events:none">
+    <img src="../../../shared/sample-logo.svg" alt="샘플 심볼" style="width:56px;height:56px;filter:invert(1)">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.72)">Service Introduction</div>
+      <h1 style="margin:0;font-size:var(--t-headline);font-weight:700;letter-spacing:-0.032em;line-height:1.14;text-wrap:pretty">주말 이틀,<br>팀 전체가 움직이는 농구 여행</h1>
+      <p style="margin:0;font-size:var(--t-lead);font-weight:500;color:rgba(255,255,255,0.78)">Sample Studio 서비스 소개서</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="10 목차" data-speaker-notes="목차. 항목은 4~6개로 유지하고, 문서가 길면 페이지 범위를 함께 적으세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Contents</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">목차</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:24px 72px;align-content:start">
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">01</span><span style="font-size:var(--t-lead);font-weight:600">사업 개요</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">03</span></div>
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">04</span><span style="font-size:var(--t-lead);font-weight:600">추진 일정</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">18</span></div>
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">02</span><span style="font-size:var(--t-lead);font-weight:600">시장과 근거</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">08</span></div>
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">05</span><span style="font-size:var(--t-lead);font-weight:600">사업비와 수익구조</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">22</span></div>
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">03</span><span style="font-size:var(--t-lead);font-weight:600">프로그램 구성</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">13</span></div>
+    <div style="display:flex;align-items:baseline;gap:28px;padding:26px 0;border-bottom:1px solid var(--line-soft)"><span style="font-size:var(--t-body);font-weight:700;color:var(--brand);min-width:56px">06</span><span style="font-size:var(--t-lead);font-weight:600">기대효과</span><span style="margin-left:auto;font-size:var(--t-micro);color:var(--ink-faint)">27</span></div>
+  </div>
+</section>
+
+<section data-label="11 문제-해결 2단" data-speaker-notes="좌측 문제, 우측 해결. 항목 수를 좌우 같게 맞추면 정렬이 깔끔합니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Problem &amp; Solution</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">샘플시는 지나가는 곳이었습니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div style="background:var(--surf-alt);border-radius:20px;padding:48px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="width:12px;height:12px;border-radius:999px;background:var(--ink-faint)"></span><span style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.06em;color:var(--ink-soft)">현재</span></div>
+      <div style="font-size:var(--t-sub);font-weight:700;line-height:1.3">머물 이유가 없는 방문</div>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:20px;font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">
+        <li style="display:flex;gap:16px"><span style="color:var(--ink-faint)">—</span><span>관광객 체류 시간이 짧아 소비가 지역에 남지 않습니다</span></li>
+        <li style="display:flex;gap:16px"><span style="color:var(--ink-faint)">—</span><span>주중 체육시설 가동률이 낮은데도 주말 수요는 흩어져 있습니다</span></li>
+        <li style="display:flex;gap:16px"><span style="color:var(--ink-faint)">—</span><span>업체별로 흩어진 예약 절차가 팀 단위 방문의 문턱이 됩니다</span></li>
+      </ul>
+    </div>
+    <div style="background:var(--brand-tint);border-radius:20px;padding:48px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:center;gap:14px"><span style="width:12px;height:12px;border-radius:999px;background:var(--brand)"></span><span style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.06em;color:var(--brand-deep)">샘플의 해결</span></div>
+      <div style="font-size:var(--t-sub);font-weight:700;line-height:1.3">팀 단위로 오게 하고, 하루를 더 남게</div>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:20px;font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">
+        <li style="display:flex;gap:16px"><span style="color:var(--brand)">—</span><span>샘플컵 대회로 한 번에 20팀 300명의 방문 수요를 만듭니다</span></li>
+        <li style="display:flex;gap:16px"><span style="color:var(--brand)">—</span><span>체육관 대관에 온천·장어 코스를 묶어 1박 2일로 늘립니다</span></li>
+        <li style="display:flex;gap:16px"><span style="color:var(--brand)">—</span><span>팀별 맞춤 일정 페이지로 예약 동선을 한 곳에 모읍니다</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-label="12 핵심 메시지" data-speaker-notes="한 문장 강조 슬라이드. 발표에서 숨을 고르는 지점에 배치하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--surf-alt);display:flex;flex-direction:column;justify-content:center;gap:40px">
+  <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;color:var(--brand);text-transform:uppercase">Our position</div>
+  <h2 style="margin:0;font-size:var(--t-headline);font-weight:700;letter-spacing:-0.032em;line-height:1.24;max-width:1500px;text-wrap:pretty">샘플은 대회를 여는 회사가 아니라,<br><span style="color:var(--brand)">샘플시에 올 이유</span>를 만드는 회사입니다</h2>
+  <p style="margin:0;font-size:var(--t-lead);font-weight:500;line-height:1.5;color:var(--ink-soft);max-width:1200px">생활체육을 매개로 외지인의 첫 방문을 만들고, 지역 소비와 재방문으로 연결합니다.</p>
+</section>
+
+<section data-label="13 3-포인트 카드" data-speaker-notes="세 가지 축을 나란히. 카드 수는 3~4개까지가 읽기 좋습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">What we do</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">샘플의 세 가지 축</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="border-radius:20px;padding:46px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:20px">
+      <div style="width:64px;height:64px;border-radius:16px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-size:var(--t-small);font-weight:700;color:var(--brand)">1</div>
+      <div style="font-size:var(--t-lead);font-weight:700;line-height:1.3">샘플컵 농구대회</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">전국 동호인 팀이 참가하는 1박 2일 풀리그 대회. 3경기를 보장하고 시상 60개 이상을 운영합니다.</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);font-weight:600;color:var(--brand)">연 12회 · 팀당 300,000원</div>
+    </div>
+    <div style="border-radius:20px;padding:46px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:20px">
+      <div style="width:64px;height:64px;border-radius:16px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-size:var(--t-small);font-weight:700;color:var(--brand)">2</div>
+      <div style="font-size:var(--t-lead);font-weight:700;line-height:1.3">샘플시 농구 여행</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">팀 단위 주말 방문 상품. 체육관 대관에 온천·장어·복분자 코스를 묶어 일정을 설계합니다.</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);font-weight:600;color:var(--brand)">상시 모집 · 10~20인 팀</div>
+    </div>
+    <div style="border-radius:20px;padding:46px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:20px">
+      <div style="width:64px;height:64px;border-radius:16px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-size:var(--t-small);font-weight:700;color:var(--brand)">3</div>
+      <div style="font-size:var(--t-lead);font-weight:700;line-height:1.3">팀 맞춤 일정 페이지</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">팀마다 발행하는 웹 일정표. 시간·장소·연락처를 한 화면에 모아 이동 부담을 줄입니다.</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);font-weight:600;color:var(--brand)">예약·결제는 업체 직접</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="14 이미지 + 텍스트" data-speaker-notes="좌우 분할. 사진이 주인공일 때는 좌우를 바꿔도 좋습니다." style="box-sizing:border-box;height:100%;display:flex;background:#FFFFFF">
+  <div style="flex:1;box-sizing:border-box;padding:var(--pad-t) 72px var(--pad-b) var(--pad-x);display:flex;flex-direction:column;justify-content:center;gap:32px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Venue</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2;text-wrap:pretty">경기는 샘플시 체육관에서 열립니다</h2>
+    <p style="margin:0;font-size:var(--t-body);line-height:1.6;color:var(--ink-mid)">코트 2면, 관람석 800석 규모로 하루 24경기를 소화할 수 있습니다. 숙소와 온천까지 차로 10분 거리에 있어 이동 부담이 적습니다.</p>
+    <div style="display:flex;flex-direction:column;gap:16px;font-size:var(--t-small);color:var(--ink-mid)">
+      <div style="display:flex;gap:20px"><span style="color:var(--ink-faint);min-width:130px">위치</span><span>샘플지역 샘플시 중앙동</span></div>
+      <div style="display:flex;gap:20px"><span style="color:var(--ink-faint);min-width:130px">규모</span><span>코트 2면 · 관람석 800석</span></div>
+      <div style="display:flex;gap:20px"><span style="color:var(--ink-faint);min-width:130px">주차</span><span>대형버스 6대 포함 120면</span></div>
+    </div>
+  </div>
+  <div style="width:840px;position:relative">
+    <image-slot id="split-photo" shape="rect" fit="cover" placeholder="체육관 사진"></image-slot>
+  </div>
+</section>
+
+<section data-label="15 큰 숫자 하나" data-speaker-notes="가장 강한 근거 하나만. 숫자 밑에 반드시 출처를 적으세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#171719;color:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:44px">
+  <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;color:var(--brand);text-transform:uppercase">Market size</div>
+  <div style="display:flex;align-items:baseline;gap:24px">
+    <span style="font-size:var(--t-hero);font-weight:700;line-height:0.92;letter-spacing:-0.04em">438<span style="font-size:var(--t-headline);font-weight:600;margin-left:12px">만 명</span></span>
+  </div>
+  <p style="margin:0;font-size:var(--t-sub);font-weight:600;line-height:1.4;max-width:1300px">전국 생활체육 동호회 등록 인원 중 구기종목 참여자</p>
+  <p style="margin:0;font-size:var(--t-micro);color:rgba(255,255,255,0.5)">출처 · 가상 조사 데이터 (예시 수치, 실제 자료로 교체하세요)</p>
+</section>
+
+<section data-label="16 지표 4-up" data-speaker-notes="핵심 지표 요약. 증감 표시는 좋아진 방향만 초록으로." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Key figures</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">2026년 상반기 운영 실적</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">개최 대회</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">6<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">회</span></div>
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--pos)">+2회 전년 대비</div>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">참가 팀</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">118<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">팀</span></div>
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--pos)">+41% 전년 대비</div>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">방문 인원</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">1,740<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">명</span></div>
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--pos)">+38% 전년 대비</div>
+    </div>
+    <div style="background:var(--brand);color:#FFFFFF;border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:rgba(255,255,255,0.78)">숙박 전환율</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">62<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">%</span></div>
+      <div style="font-size:var(--t-micro);font-weight:600;color:rgba(255,255,255,0.78)">1박 이상 체류 팀 비율</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="17 막대 차트" data-speaker-notes="세로 막대. 강조할 막대 하나만 브랜드 컬러로 두세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Growth</div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">참가 팀 수는 3년째 늘고 있습니다</h2>
+    </div>
+    <div style="font-size:var(--t-micro);color:var(--ink-soft)">단위 · 팀</div>
+  </div>
+  <div style="flex:1;display:flex;align-items:flex-end;gap:44px;padding-bottom:8px">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;justify-content:flex-end">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">42</div>
+      <div style="width:100%;height:16%;background:var(--fill);border-radius:12px 12px 0 0"></div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">2023</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;justify-content:flex-end">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">67</div>
+      <div style="width:100%;height:26%;background:var(--fill);border-radius:12px 12px 0 0"></div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">2024</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;justify-content:flex-end">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">96</div>
+      <div style="width:100%;height:37%;background:var(--fill);border-radius:12px 12px 0 0"></div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">2025</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;justify-content:flex-end">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--brand)">118</div>
+      <div style="width:100%;height:45%;background:var(--brand);border-radius:12px 12px 0 0"></div>
+      <div style="font-size:var(--t-small);font-weight:700">2026 상반기</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;justify-content:flex-end">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--ink-faint)">240</div>
+      <div style="width:100%;height:92%;border-radius:12px 12px 0 0;box-shadow:inset 0 0 0 2px var(--line);background:repeating-linear-gradient(135deg,rgba(112,115,124,0.05) 0 14px,transparent 14px 28px)"></div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--ink-faint)">2027 목표</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="18 도넛 + 범례" data-speaker-notes="구성비 하나만 보여줄 때. 항목은 4개 이하로." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Spending mix</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">방문 1팀이 샘플시에서 쓰는 돈</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:520px 1fr;gap:88px;align-items:center">
+    <div style="width:440px;height:440px;border-radius:999px;background:conic-gradient(var(--brand) 0 42%,#5A9BFF 42% 68%,#9EC5FF 68% 86%,rgba(112,115,124,0.16) 86% 100%);display:flex;align-items:center;justify-content:center;justify-self:center">
+      <div style="width:250px;height:250px;border-radius:999px;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+        <div style="font-size:var(--t-micro);color:var(--ink-soft)">팀당 평균</div>
+        <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em">1,860천원</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;align-items:center;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)"><span style="width:20px;height:20px;border-radius:6px;background:var(--brand)"></span><span style="font-size:var(--t-body);font-weight:600;flex:1">숙박</span><span style="font-size:var(--t-body);font-weight:700">42%</span><span style="font-size:var(--t-small);color:var(--ink-soft);min-width:180px;text-align:right">781,000원</span></div>
+      <div style="display:flex;align-items:center;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)"><span style="width:20px;height:20px;border-radius:6px;background:#5A9BFF"></span><span style="font-size:var(--t-body);font-weight:600;flex:1">식음료</span><span style="font-size:var(--t-body);font-weight:700">26%</span><span style="font-size:var(--t-small);color:var(--ink-soft);min-width:180px;text-align:right">484,000원</span></div>
+      <div style="display:flex;align-items:center;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--line-soft)"><span style="width:20px;height:20px;border-radius:6px;background:#9EC5FF"></span><span style="font-size:var(--t-body);font-weight:600;flex:1">온천 · 체험</span><span style="font-size:var(--t-body);font-weight:700">18%</span><span style="font-size:var(--t-small);color:var(--ink-soft);min-width:180px;text-align:right">335,000원</span></div>
+      <div style="display:flex;align-items:center;gap:24px"><span style="width:20px;height:20px;border-radius:6px;background:rgba(112,115,124,0.16)"></span><span style="font-size:var(--t-body);font-weight:600;flex:1">특산물 구매</span><span style="font-size:var(--t-body);font-weight:700">14%</span><span style="font-size:var(--t-small);color:var(--ink-soft);min-width:180px;text-align:right">260,000원</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="19 진행 바 비교" data-speaker-notes="항목 간 비율 비교. 값이 클수록 위로 정렬하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Why they come</div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">팀이 원정을 결정하는 이유</h2>
+    </div>
+    <div style="font-size:var(--t-micro);color:var(--ink-soft)">참가 팀 118팀 설문 · 복수응답</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--t-body);font-weight:600"><span>경기 수가 보장된다</span><span>74%</span></div>
+      <div style="height:26px;border-radius:999px;background:var(--fill);overflow:hidden"><div style="width:74%;height:100%;border-radius:999px;background:var(--brand)"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--t-body);font-weight:600"><span>숙소와 체육관이 가깝다</span><span>61%</span></div>
+      <div style="height:26px;border-radius:999px;background:var(--fill);overflow:hidden"><div style="width:61%;height:100%;border-radius:999px;background:var(--brand)"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--t-body);font-weight:600"><span>경기 외 일정이 함께 준비된다</span><span>48%</span></div>
+      <div style="height:26px;border-radius:999px;background:var(--fill);overflow:hidden"><div style="width:48%;height:100%;border-radius:999px;background:#5A9BFF"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--t-body);font-weight:600"><span>참가비가 합리적이다</span><span>39%</span></div>
+      <div style="height:26px;border-radius:999px;background:var(--fill);overflow:hidden"><div style="width:39%;height:100%;border-radius:999px;background:#5A9BFF"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--t-body);font-weight:600"><span>시상 규모가 크다</span><span>27%</span></div>
+      <div style="height:26px;border-radius:999px;background:var(--fill);overflow:hidden"><div style="width:27%;height:100%;border-radius:999px;background:#9EC5FF"></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="20 표 · 사업비" data-speaker-notes="예산표. 합계 행은 굵게, 금액은 오른쪽 정렬." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Budget</div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">사업비 구성</h2>
+    </div>
+    <div style="font-size:var(--t-micro);color:var(--ink-soft)">단위 · 천원</div>
+  </div>
+  <div style="flex:1">
+    <table style="width:100%;border-collapse:collapse;font-size:var(--t-small)">
+      <thead>
+        <tr style="background:var(--surf-alt)">
+          <th style="text-align:left;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">항목</th>
+          <th style="text-align:left;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">세부 내용</th>
+          <th style="text-align:right;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">보조금</th>
+          <th style="text-align:right;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">자부담</th>
+          <th style="text-align:right;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">합계</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">대회 운영</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">심판·기록·의무, 대관료</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">48,000</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">12,000</td>
+          <td style="padding:26px 28px;text-align:right;font-weight:600;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">60,000</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">시상 · 기념품</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">부문별 시상 60개, 참가 기념품</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">21,000</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">9,000</td>
+          <td style="padding:26px 28px;text-align:right;font-weight:600;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">30,000</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">홍보 · 콘텐츠</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">영상 제작, 온라인 광고</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">26,000</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">14,000</td>
+          <td style="padding:26px 28px;text-align:right;font-weight:600;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">40,000</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">플랫폼 운영</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">일정 페이지 개발·유지</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">18,000</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">12,000</td>
+          <td style="padding:26px 28px;text-align:right;font-weight:600;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">30,000</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">인건비</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">운영 인력 2명</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">12,000</td>
+          <td style="padding:26px 28px;text-align:right;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">8,000</td>
+          <td style="padding:26px 28px;text-align:right;font-weight:600;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums">20,000</td>
+        </tr>
+        <tr style="background:var(--brand-tint)">
+          <td style="padding:28px;font-weight:700;font-size:var(--t-body)">합계</td>
+          <td style="padding:28px"></td>
+          <td style="padding:28px;text-align:right;font-weight:700;font-size:var(--t-body);font-variant-numeric:tabular-nums">125,000</td>
+          <td style="padding:28px;text-align:right;font-weight:700;font-size:var(--t-body);font-variant-numeric:tabular-nums">55,000</td>
+          <td style="padding:28px;text-align:right;font-weight:700;font-size:var(--t-body);color:var(--brand-deep);font-variant-numeric:tabular-nums">180,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section data-label="21 표 · 비교" data-speaker-notes="대안 비교표. 우리 안을 강조 열로 두고 나머지는 담백하게." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Comparison</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">기존 방식과의 차이</h2>
+  </div>
+  <div style="flex:1">
+    <table style="width:100%;border-collapse:collapse;font-size:var(--t-small)">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line);width:26%">구분</th>
+          <th style="text-align:left;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">일반 동호인 대회</th>
+          <th style="text-align:left;padding:24px 28px;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line)">지자체 단발 행사</th>
+          <th style="text-align:left;padding:24px 28px;font-weight:700;color:#FFFFFF;background:var(--brand);border-bottom:1px solid var(--brand);border-radius:14px 14px 0 0">샘플</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">보장 경기 수</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">1~2경기 (토너먼트)</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">2경기</td>
+          <td style="padding:26px 28px;font-weight:600;background:var(--brand-tint);border-bottom:1px solid #FFFFFF">3경기 풀리그 보장</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">체류 기간</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">당일</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">당일 ~ 1박</td>
+          <td style="padding:26px 28px;font-weight:600;background:var(--brand-tint);border-bottom:1px solid #FFFFFF">1박 2일 기본</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">경기 외 일정</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">없음</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">안내 책자 배포</td>
+          <td style="padding:26px 28px;font-weight:600;background:var(--brand-tint);border-bottom:1px solid #FFFFFF">팀별 맞춤 일정 페이지</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">지역 소비 연계</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">개별 이용</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">일부 제휴</td>
+          <td style="padding:26px 28px;font-weight:600;background:var(--brand-tint);border-bottom:1px solid #FFFFFF">숙박·식당·온천 제휴 네트워크</td>
+        </tr>
+        <tr>
+          <td style="padding:26px 28px;font-weight:600;border-bottom:1px solid var(--line-soft)">재방문 설계</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">없음</td>
+          <td style="padding:26px 28px;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)">연 1회 반복</td>
+          <td style="padding:26px 28px;font-weight:600;background:var(--brand-tint);border-radius:0 0 14px 14px">연 12회 · 팀 데이터 관리</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section data-label="22 일정표" data-speaker-notes="연차·월별 추진 일정. 막대 위치와 길이만 조절하면 됩니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Schedule</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">연차별 추진 일정</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:22px;justify-content:space-between">
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);gap:0;font-size:var(--t-micro);font-weight:600;color:var(--ink-soft);padding-bottom:16px;border-bottom:1px solid var(--line)">
+      <div>추진 과제</div>
+      <div style="text-align:center">1분기</div>
+      <div style="text-align:center">2분기</div>
+      <div style="text-align:center">3분기</div>
+      <div style="text-align:center">4분기</div>
+    </div>
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);align-items:center;padding:14px 0"><div style="font-size:var(--t-small);font-weight:600">제휴 업체 모집 · 계약</div><div style="grid-column:2 / span 2;height:34px;border-radius:999px;background:var(--brand);display:flex;align-items:center;padding:0 20px;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">28개 업체</div></div>
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);align-items:center;padding:14px 0"><div style="font-size:var(--t-small);font-weight:600">일정 페이지 고도화</div><div style="grid-column:2 / span 1;height:34px;border-radius:999px;background:#5A9BFF;display:flex;align-items:center;padding:0 20px;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">v2 오픈</div></div>
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);align-items:center;padding:14px 0"><div style="font-size:var(--t-small);font-weight:600">샘플컵 정규 시즌 운영</div><div style="grid-column:3 / span 3;height:34px;border-radius:999px;background:var(--brand);display:flex;align-items:center;padding:0 20px;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">9개 대회</div></div>
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);align-items:center;padding:14px 0"><div style="font-size:var(--t-small);font-weight:600">농구 여행 상시 판매</div><div style="grid-column:2 / span 4;height:34px;border-radius:999px;background:#9EC5FF;display:flex;align-items:center;padding:0 20px;color:var(--ink);font-size:var(--t-micro);font-weight:600">연중</div></div>
+    <div style="display:grid;grid-template-columns:340px repeat(4,1fr);align-items:center;padding:14px 0"><div style="font-size:var(--t-small);font-weight:600">성과 측정 · 결과 보고</div><div style="grid-column:5 / span 1;height:34px;border-radius:999px;background:var(--ink);display:flex;align-items:center;padding:0 20px;color:#FFFFFF;font-size:var(--t-micro);font-weight:600">12월</div></div>
+  </div>
+</section>
+
+<section data-label="23 로드맵" data-speaker-notes="장기 로드맵. 단계는 3~4개, 각 단계 아래 한 줄 성과 지표." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--surf-alt);display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Roadmap</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">3년 로드맵</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:0">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);align-items:end;gap:0;padding-bottom:32px">
+      <div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--brand)">2026</div>
+      <div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--brand)">2027</div>
+      <div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--brand)">2028</div>
+      <div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--ink-faint)">2029</div>
+    </div>
+    <div style="position:relative;height:4px;background:var(--line);border-radius:999px">
+      <div style="position:absolute;left:0;top:0;height:100%;width:25%;background:var(--brand);border-radius:999px"></div>
+      <div style="position:absolute;left:0;top:-12px;width:28px;height:28px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 8px var(--surf-alt)"></div>
+      <div style="position:absolute;left:25%;top:-12px;width:28px;height:28px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 8px var(--surf-alt)"></div>
+      <div style="position:absolute;left:50%;top:-12px;width:28px;height:28px;border-radius:999px;background:#FFFFFF;box-shadow:0 0 0 4px var(--line),0 0 0 8px var(--surf-alt)"></div>
+      <div style="position:absolute;left:75%;top:-12px;width:28px;height:28px;border-radius:999px;background:#FFFFFF;box-shadow:0 0 0 4px var(--line),0 0 0 8px var(--surf-alt)"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-top:48px">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px"><div style="font-size:var(--t-body);font-weight:700">샘플시 정착</div><p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">연 12회 대회 정례화, 제휴 업체 28곳 확보</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px"><div style="font-size:var(--t-body);font-weight:700">여행 상품화</div><p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">농구 여행 단독 판매 개시, 연 240팀 유치</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px"><div style="font-size:var(--t-body);font-weight:700">종목 확장</div><p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">배구·풋살로 확장, 비수기 주중 수요 확보</p></div>
+      <div style="display:flex;flex-direction:column;gap:14px"><div style="font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">지역 복제</div><p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">인접 시군으로 운영 모델 이전</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="24 프로세스 3단계" data-speaker-notes="간단한 절차 안내. 신청 절차·제휴 절차에 사용하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">How it works</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">신청부터 방문까지 3단계</h2>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;gap:0">
+    <div style="flex:1;display:flex;flex-direction:column;gap:24px;padding-right:40px">
+      <div style="width:88px;height:88px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lead);font-weight:700">1</div>
+      <div style="font-size:var(--t-sub);font-weight:700;line-height:1.3">신청서 제출</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">팀 이름과 인원, 희망 날짜를 남기면 담당자가 하루 안에 연락드려요.</p>
+    </div>
+    <div style="width:64px;height:2px;background:var(--line);flex-shrink:0"></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:24px;padding:0 40px">
+      <div style="width:88px;height:88px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lead);font-weight:700">2</div>
+      <div style="font-size:var(--t-sub);font-weight:700;line-height:1.3">일정 확정</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">체육관 시간과 숙소·식당을 맞춰 팀 전용 일정 페이지를 발행해요.</p>
+    </div>
+    <div style="width:64px;height:2px;background:var(--line);flex-shrink:0"></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:24px;padding-left:40px">
+      <div style="width:88px;height:88px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-lead);font-weight:700">3</div>
+      <div style="font-size:var(--t-sub);font-weight:700;line-height:1.3">방문 · 정산</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">예약과 결제는 각 업체에 직접 진행하고, 샘플은 현장 운영을 맡아요.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="25 프로세스 5단계" data-speaker-notes="운영 절차가 길 때. 단계별 담당·기간을 함께 적으면 신뢰가 올라갑니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Operating process</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">대회 운영 프로세스</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:stretch">
+    <div style="background:var(--surf-alt);border-radius:20px;padding:38px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--brand)">STEP 1</div>
+      <div style="font-size:var(--t-body);font-weight:700;line-height:1.3">일정 공고</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.55;color:var(--ink-soft)">대회 6주 전 공고, 참가 신청 접수</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);color:var(--ink-faint)">D-42</div>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:38px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--brand)">STEP 2</div>
+      <div style="font-size:var(--t-body);font-weight:700;line-height:1.3">팀 확정</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.55;color:var(--ink-soft)">20팀 마감, 조 편성과 대진 발표</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);color:var(--ink-faint)">D-21</div>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:38px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--brand)">STEP 3</div>
+      <div style="font-size:var(--t-body);font-weight:700;line-height:1.3">일정 페이지 발행</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.55;color:var(--ink-soft)">팀별 숙소·식당·이동 동선 안내</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);color:var(--ink-faint)">D-10</div>
+    </div>
+    <div style="background:var(--brand);color:#FFFFFF;border-radius:20px;padding:38px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:rgba(255,255,255,0.78)">STEP 4</div>
+      <div style="font-size:var(--t-body);font-weight:700;line-height:1.3">대회 운영</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.55;color:rgba(255,255,255,0.82)">1박 2일, 3경기 보장 풀리그 진행</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);color:rgba(255,255,255,0.66)">D-DAY</div>
+    </div>
+    <div style="background:var(--surf-alt);border-radius:20px;padding:38px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--brand)">STEP 5</div>
+      <div style="font-size:var(--t-body);font-weight:700;line-height:1.3">결과 정리</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.55;color:var(--ink-soft)">소비 데이터 집계, 재방문 안내</p>
+      <div style="margin-top:auto;font-size:var(--t-micro);color:var(--ink-faint)">D+7</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="26 제휴 조건 · 수익구조" data-speaker-notes="제휴 제안서의 핵심 장. 조건은 숫자로, 정산 방식은 문장으로." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Partnership terms</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">제휴 조건과 정산 구조</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1.15fr 1fr;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;gap:28px;padding:30px 36px;border-radius:16px;background:var(--surf-alt)"><span style="font-size:var(--t-small);font-weight:600;flex:1">제휴 비용</span><span style="font-size:var(--t-body);font-weight:700;color:var(--brand)">없음</span></div>
+      <div style="display:flex;align-items:center;gap:28px;padding:30px 36px;border-radius:16px;background:var(--surf-alt)"><span style="font-size:var(--t-small);font-weight:600;flex:1">업체 제공 조건</span><span style="font-size:var(--t-body);font-weight:700">정가 대비 10~15% 할인</span></div>
+      <div style="display:flex;align-items:center;gap:28px;padding:30px 36px;border-radius:16px;background:var(--surf-alt)"><span style="font-size:var(--t-small);font-weight:600;flex:1">샘플 수수료</span><span style="font-size:var(--t-body);font-weight:700">0원 · 직접 결제</span></div>
+      <div style="display:flex;align-items:center;gap:28px;padding:30px 36px;border-radius:16px;background:var(--surf-alt)"><span style="font-size:var(--t-small);font-weight:600;flex:1">계약 기간</span><span style="font-size:var(--t-body);font-weight:700">1년 · 자동 연장</span></div>
+      <div style="display:flex;align-items:center;gap:28px;padding:30px 36px;border-radius:16px;background:var(--brand-tint)"><span style="font-size:var(--t-small);font-weight:600;flex:1">예상 연간 송객</span><span style="font-size:var(--t-body);font-weight:700;color:var(--brand-deep)">업체당 40~60팀</span></div>
+    </div>
+    <div style="background:#171719;color:#FFFFFF;border-radius:20px;padding:52px;display:flex;flex-direction:column;gap:28px;justify-content:center">
+      <div style="font-size:var(--t-lead);font-weight:700;line-height:1.35">돈은 샘플을 거치지 않습니다</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.7;color:rgba(255,255,255,0.72)">샘플은 팀에게 일정과 연락처를 전달하고, 예약과 결제는 팀이 각 업체에 직접 진행해요. 업체는 수수료 없이 손님을 받고, 샘플은 방문 데이터만 공유받습니다.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;padding-top:8px">
+        <div style="display:flex;gap:18px;font-size:var(--t-small);color:rgba(255,255,255,0.88)"><span style="color:var(--brand);font-weight:700">01</span><span>샘플 → 팀 : 일정 페이지 발행</span></div>
+        <div style="display:flex;gap:18px;font-size:var(--t-small);color:rgba(255,255,255,0.88)"><span style="color:var(--brand);font-weight:700">02</span><span>팀 → 업체 : 예약 · 결제</span></div>
+        <div style="display:flex;gap:18px;font-size:var(--t-small);color:rgba(255,255,255,0.88)"><span style="color:var(--brand);font-weight:700">03</span><span>업체 → 샘플 : 이용 실적 공유</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="27 기대효과 KPI" data-speaker-notes="정책사업 제안서 필수 장. 정성 효과보다 측정 가능한 수치를 앞세우세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Expected outcome</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">기대효과와 성과 지표</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:24px">
+    <div style="border-radius:20px;padding:40px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">연간 방문 인원</div>
+      <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em;line-height:1;color:var(--brand)">3,600명</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-soft)">240팀 × 평균 15명</div>
+    </div>
+    <div style="border-radius:20px;padding:40px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">직접 소비 유발</div>
+      <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em;line-height:1;color:var(--brand)">4.5억원</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-soft)">팀당 평균 186만원 기준</div>
+    </div>
+    <div style="border-radius:20px;padding:40px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">참여 지역 업체</div>
+      <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em;line-height:1;color:var(--brand)">28개소</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-soft)">숙박 9 · 식당 14 · 체험 5</div>
+    </div>
+    <div style="border-radius:20px;padding:40px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">재방문율</div>
+      <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em;line-height:1">45%</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-soft)">동일 팀 연 2회 이상 참가</div>
+    </div>
+    <div style="border-radius:20px;padding:40px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">체육시설 가동률</div>
+      <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.032em;line-height:1">+22%p</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-soft)">주말 기준, 사업 전 대비</div>
+    </div>
+    <div style="border-radius:20px;padding:40px;background:var(--brand);color:#FFFFFF;display:flex;flex-direction:column;gap:14px;justify-content:center">
+      <div style="font-size:var(--t-micro);font-weight:600;color:rgba(255,255,255,0.78)">측정 방법</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6">참가 신청 데이터와 제휴 업체 이용 실적을 분기별로 집계해 결과보고서로 제출합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="28 조직도" data-speaker-notes="추진 체계. 외부 협력기관은 점선 박스로 구분했습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Structure</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">사업 추진 체계</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0">
+    <div style="padding:26px 56px;border-radius:16px;background:#171719;color:#FFFFFF;font-size:var(--t-body);font-weight:700">Sample Studio 사업총괄</div>
+    <div style="width:2px;height:44px;background:var(--line)"></div>
+    <div style="width:76%;height:2px;background:var(--line)"></div>
+    <div style="width:76%;display:grid;grid-template-columns:repeat(3,1fr)">
+      <div style="display:flex;justify-content:center"><div style="width:2px;height:44px;background:var(--line)"></div></div>
+      <div style="display:flex;justify-content:center"><div style="width:2px;height:44px;background:var(--line)"></div></div>
+      <div style="display:flex;justify-content:center"><div style="width:2px;height:44px;background:var(--line)"></div></div>
+    </div>
+    <div style="width:76%;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <div style="border-radius:16px;padding:30px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center"><div style="font-size:var(--t-body);font-weight:700">대회 운영팀</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">경기 · 심판 · 현장</div></div>
+      <div style="border-radius:16px;padding:30px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center"><div style="font-size:var(--t-body);font-weight:700">제휴 · 여행팀</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">업체 관리 · 일정 설계</div></div>
+      <div style="border-radius:16px;padding:30px;box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center"><div style="font-size:var(--t-body);font-weight:700">콘텐츠 · 플랫폼</div><div style="font-size:var(--t-micro);color:var(--ink-soft)">홍보 · 일정 페이지</div></div>
+    </div>
+    <div style="width:2px;height:44px;background:var(--line);margin-top:44px"></div>
+    <div style="display:flex;gap:24px">
+      <div style="border-radius:16px;padding:22px 34px;border:2px dashed var(--line);font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">샘플시 체육진흥과</div>
+      <div style="border-radius:16px;padding:22px 34px;border:2px dashed var(--line);font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">샘플시체육회</div>
+      <div style="border-radius:16px;padding:22px 34px;border:2px dashed var(--line);font-size:var(--t-small);font-weight:600;color:var(--ink-soft)">지역 제휴 업체 28개소</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="29 팀 소개" data-speaker-notes="사람 사진은 원형. 이름 아래 역할 한 줄, 경력 한 줄." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Team</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">함께하는 사람들</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;align-content:center">
+    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <image-slot id="team-1" shape="circle" style="width:200px;height:200px" placeholder="인물"></image-slot>
+      <div style="font-size:var(--t-lead);font-weight:700">담당자 A</div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--brand)">대표 · 사업총괄</div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">생활체육 대회 운영 8년, 전국 동호인 리그 기획</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <image-slot id="team-2" shape="circle" style="width:200px;height:200px" placeholder="인물"></image-slot>
+      <div style="font-size:var(--t-lead);font-weight:700">담당자 B</div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--brand)">대회 운영 총괄</div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">예시 리그 운영 경력, 심판 배정·기록 시스템 담당</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <image-slot id="team-3" shape="circle" style="width:200px;height:200px" placeholder="인물"></image-slot>
+      <div style="font-size:var(--t-lead);font-weight:700">담당자 C</div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--brand)">지역 제휴 · 여행 설계</div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">샘플시 거주 12년, 지역 관광 코스 개발</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <image-slot id="team-4" shape="circle" style="width:200px;height:200px" placeholder="인물"></image-slot>
+      <div style="font-size:var(--t-lead);font-weight:700">담당자 D</div>
+      <div style="font-size:var(--t-small);font-weight:600;color:var(--brand)">콘텐츠 · 플랫폼</div>
+      <p style="margin:0;font-size:var(--t-micro);line-height:1.6;color:var(--ink-soft)">스포츠 미디어 제작, 일정 페이지 서비스 운영</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="30 인용 · 풀스크린" data-speaker-notes="한 사람의 말로 슬라이드 하나. 실제 참가 팀 코멘트를 쓰세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--brand);color:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:52px">
+  <div style="font-size:var(--t-jumbo);font-weight:700;line-height:0.6;color:rgba(255,255,255,0.4)">&ldquo;</div>
+  <blockquote style="margin:0;font-size:var(--t-stat-sm);font-weight:600;line-height:1.42;letter-spacing:-0.024em;max-width:1560px;text-wrap:pretty">여기에 실제 이용자의 말을 넣습니다. 경험한 변화가 드러나는 한 문장을 고르고, 발언 맥락과 사용 허락을 확인하세요.</blockquote>
+  <div style="display:flex;align-items:center;gap:22px">
+    <image-slot id="quote-avatar" shape="circle" style="width:84px;height:84px" placeholder="인물"></image-slot>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="font-size:var(--t-body);font-weight:600">참가자 B 주장</span>
+      <span style="font-size:var(--t-small);color:rgba(255,255,255,0.72)">가상 B클럽 · 2026년 3회 참가</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="31 후기 3-up" data-speaker-notes="후기 카드. 이름은 실명 대신 이니셜, 소속과 참가 횟수를 함께." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:var(--surf-alt);display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Voices</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">후기 배치 예시 · 실제 발언 아님</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="background:#FFFFFF;border-radius:20px;padding:46px;display:flex;flex-direction:column;gap:26px">
+      <p style="margin:0;font-size:var(--t-body);font-weight:500;line-height:1.55;flex:1">후기 예시 A입니다. 사용자가 겪은 상황과 구체적인 변화를 실제 발언으로 교체하세요.</p>
+      <div style="display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--line-soft)">
+        <image-slot id="review-1" shape="circle" style="width:60px;height:60px" placeholder="인물"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:var(--t-micro);font-weight:600">참가자 A 주장</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">가상 A클럽</span></div>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border-radius:20px;padding:46px;display:flex;flex-direction:column;gap:26px">
+      <p style="margin:0;font-size:var(--t-body);font-weight:500;line-height:1.55;flex:1">후기 예시 B입니다. 협력사가 확인한 변화를 적고, 추정이나 기대와 실제 결과를 구분하세요.</p>
+      <div style="display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--line-soft)">
+        <image-slot id="review-2" shape="circle" style="width:60px;height:60px" placeholder="인물"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:var(--t-micro);font-weight:600">가상 D식당</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">제휴 업체 · 2025년부터</span></div>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border-radius:20px;padding:46px;display:flex;flex-direction:column;gap:26px">
+      <p style="margin:0;font-size:var(--t-body);font-weight:500;line-height:1.55;flex:1">후기 예시 C입니다. 이용자가 직접 설명한 변화를 적고, 발언 시점과 소속을 함께 표시하세요.</p>
+      <div style="display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--line-soft)">
+        <image-slot id="review-3" shape="circle" style="width:60px;height:60px" placeholder="인물"></image-slot>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:var(--t-micro);font-weight:600">참가자 C 총무</span><span style="font-size:var(--t-micro);color:var(--ink-soft)">가상 C클럽</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="32 파트너 목록" data-speaker-notes="제휴 업체·협력 기관 목록. 로고가 있으면 자리마다 끌어다 놓으세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Partners</div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">함께하는 샘플시의 업체들</h2>
+    </div>
+    <div style="font-size:var(--t-micro);color:var(--ink-soft)">2026년 7월 기준 28개소</div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:24px">
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-1" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-2" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-3" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-4" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-5" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-6" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;box-shadow:inset 0 0 0 1px var(--line-soft);min-width:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px"><image-slot id="partner-7" shape="rect" style="width:100%;height:100%" fit="contain" placeholder="로고"></image-slot></div>
+    <div style="border-radius:16px;background:var(--surf-alt);display:flex;align-items:center;justify-content:center;font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">외 21개소</div>
+  </div>
+</section>
+
+<section data-label="33 이미지 풀블리드" data-speaker-notes="사진 한 장으로 분위기를 전환. 캡션은 왼쪽 아래에 짧게." style="box-sizing:border-box;height:100%;position:relative;overflow:hidden;background:#171719">
+  <div style="position:absolute;inset:0">
+    <image-slot id="fullbleed" shape="rect" fit="cover" placeholder="현장 사진 · 가로 사진 권장"></image-slot>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.78) 100%);pointer-events:none"></div>
+  <div style="position:absolute;left:var(--pad-x);bottom:var(--pad-b);right:var(--pad-x);display:flex;flex-direction:column;gap:18px;color:#FFFFFF;pointer-events:none">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.72)">2026 Sample Studio CUP</div>
+    <div style="font-size:var(--t-stat-sm);font-weight:700;letter-spacing:-0.028em;line-height:1.25">6월 대회 결승, 관중석까지 가득 찼습니다</div>
+  </div>
+</section>
+
+<section data-label="34 이미지 3-up" data-speaker-notes="샘플시 자원 소개. 세로 비율을 맞추면 안정적으로 보입니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Around the court</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">경기가 끝난 뒤의 샘플시</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden"><image-slot id="place-1" shape="rounded" radius="20" fit="cover" placeholder="온천 사진"></image-slot></div>
+      <div style="font-size:var(--t-lead);font-weight:700">샘플시 중앙온천</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">경기 직후 회복에 좋은 온천. 체육관에서 차로 12분.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden"><image-slot id="place-2" shape="rounded" radius="20" fit="cover" placeholder="장어거리 사진"></image-slot></div>
+      <div style="font-size:var(--t-lead);font-weight:700">중앙식당 거리</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">팀 회식 코스. 15팀까지 단체석 예약이 가능합니다.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden"><image-slot id="place-3" shape="rounded" radius="20" fit="cover" placeholder="샘플산 사진"></image-slot></div>
+      <div style="font-size:var(--t-lead);font-weight:700">샘플산 도립공원</div>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.6;color:var(--ink-soft)">둘째 날 오전 코스. 가벼운 산책로로 2시간이면 충분해요.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="35 요청사항" data-speaker-notes="상대에게 무엇을 요청하는지 명확히. 항목은 3~5개." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">What we ask</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">요청드리는 사항</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px">
+    <div style="display:flex;align-items:center;gap:32px;padding:36px 44px;border-radius:16px;background:var(--surf-alt)">
+      <span style="width:44px;height:44px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-micro);font-weight:700;flex-shrink:0">1</span>
+      <span style="font-size:var(--t-body);font-weight:600;flex:1">샘플시 체육관 주말 우선 대관 (연 12회, 회당 2일)</span>
+      <span style="font-size:var(--t-small);color:var(--ink-soft)">체육진흥과</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:32px;padding:36px 44px;border-radius:16px;background:var(--surf-alt)">
+      <span style="width:44px;height:44px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-micro);font-weight:700;flex-shrink:0">2</span>
+      <span style="font-size:var(--t-body);font-weight:600;flex:1">사업비 보조 125,000천원 (총 사업비의 69%)</span>
+      <span style="font-size:var(--t-small);color:var(--ink-soft)">문화관광과</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:32px;padding:36px 44px;border-radius:16px;background:var(--surf-alt)">
+      <span style="width:44px;height:44px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-micro);font-weight:700;flex-shrink:0">3</span>
+      <span style="font-size:var(--t-body);font-weight:600;flex:1">군 공식 채널을 통한 대회 홍보 협조</span>
+      <span style="font-size:var(--t-small);color:var(--ink-soft)">홍보소통실</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:32px;padding:36px 44px;border-radius:16px;background:var(--brand-tint)">
+      <span style="width:44px;height:44px;border-radius:999px;background:var(--brand);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:var(--t-micro);font-weight:700;flex-shrink:0">4</span>
+      <span style="font-size:var(--t-body);font-weight:600;flex:1">지역 업체 제휴 연계 시 군 협조 공문 발송</span>
+      <span style="font-size:var(--t-small);color:var(--brand-deep)">협의 필요</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="36 맺음말 · 연락처" data-speaker-notes="마지막 장. 한 문장 요약과 연락처만 남기세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#171719;color:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:20px">
+    <img src="../../../shared/sample-logo.svg" alt="샘플 심볼" style="width:56px;height:56px;filter:invert(1)">
+    <span style="font-family:var(--font-display);font-size:var(--t-body);font-weight:700;letter-spacing:-0.01em">Sample Studio</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:30px">
+    <h2 style="margin:0;font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1.22;max-width:1400px;text-wrap:pretty">농구 한 경기가 샘플시에서<br>하루를 더 만들게 하겠습니다</h2>
+    <p style="margin:0;font-size:var(--t-lead);font-weight:500;color:rgba(255,255,255,0.66)">함께 만들 방법을 논의하고 싶습니다.</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,0.16);padding-top:32px">
+    <div style="display:flex;gap:72px">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:var(--t-micro);color:rgba(255,255,255,0.5)">담당</span><span style="font-size:var(--t-small);font-weight:600">담당자 A · 대표</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:var(--t-micro);color:rgba(255,255,255,0.5)">전화</span><span style="font-size:var(--t-small);font-weight:600">010-0000-0000</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:var(--t-micro);color:rgba(255,255,255,0.5)">이메일</span><span style="font-size:var(--t-small);font-weight:600">hello@example.com</span></div>
+    </div>
+    <span style="font-size:var(--t-micro);color:rgba(255,255,255,0.5)">샘플시 운영 부서</span>
+  </div>
+</section>
+
+<section data-label="37 덱 문법 · 프리셋 5종" data-speaker-notes="목적별 이야기 문법. 픽셀이 아니라 순서·밀도·톤을 고정합니다. 실제 문서를 만들 때는 37~40번 안내 슬라이드를 삭제하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:36px">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Purpose presets</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">목적이 슬라이드 순서를 정합니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:230px 1fr 200px;border-top:2px solid var(--ink)">
+    <div style="padding:18px 20px 18px 0;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">프리셋</div>
+    <div style="padding:18px 20px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">흐름 (spine)</div>
+    <div style="padding:18px 0 18px 20px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">밀도</div>
+    <div style="padding:22px 20px 22px 0;border-bottom:1px solid var(--line)"><div style="font-size:var(--t-body);font-weight:700">지자체 제안</div><div style="font-size:var(--t-micro);color:var(--ink-soft);margin-top:6px">격식 · 검증 가능</div></div>
+    <div style="padding:22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">표지 → 목차 → 간지+내용 ×4 → 요청 → 클로징</div>
+    <div style="padding:22px 0 22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);color:var(--ink-mid)">hybrid</div>
+    <div style="padding:22px 20px 22px 0;border-bottom:1px solid var(--line)"><div style="font-size:var(--t-body);font-weight:700">여행 영업 · 제휴</div><div style="font-size:var(--t-micro);color:var(--ink-soft);margin-top:6px">존댓말 · 혜택 우선</div></div>
+    <div style="padding:22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">브랜드 표지 → 고객 맥락 → 여정 비트 → 후기·실적 → 신청 안내</div>
+    <div style="padding:22px 0 22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);color:var(--ink-mid)">present</div>
+    <div style="padding:22px 20px 22px 0;border-bottom:1px solid var(--line)"><div style="font-size:var(--t-body);font-weight:700">내부 전략 · 보드</div><div style="font-size:var(--t-micro);color:var(--ink-soft);margin-top:6px">솔직 · 비방어적</div></div>
+    <div style="padding:22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">요약 우선 → KPI → 이슈별 옵션·권고 → 리스크 → 결정·담당</div>
+    <div style="padding:22px 0 22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);color:var(--ink-mid)">read</div>
+    <div style="padding:22px 20px 22px 0;border-bottom:1px solid var(--line)"><div style="font-size:var(--t-body);font-weight:700">투자 · 지원사업</div><div style="font-size:var(--t-micro);color:var(--ink-soft);margin-top:6px">구체적 · 과장 없음</div></div>
+    <div style="padding:22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">한 줄 정의 → 실적 → 문제 → 해법 → 추이 → 시장 산식 → 요청</div>
+    <div style="padding:22px 0 22px 20px;border-bottom:1px solid var(--line);font-size:var(--t-small);color:var(--ink-mid)">present + 부록</div>
+    <div style="padding:22px 20px 22px 0"><div style="font-size:var(--t-body);font-weight:700">키노트 · 오프닝</div><div style="font-size:var(--t-micro);color:var(--ink-soft);margin-top:6px">인간적 · 생생</div></div>
+    <div style="padding:22px 20px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">한 줄 → 긴장 → 지금·앞으로 대비 → 증거 한 장 → 기억되는 한 줄</div>
+    <div style="padding:22px 0 22px 20px;font-size:var(--t-small);color:var(--ink-mid)">최소</div>
+  </div>
+  <div style="font-size:var(--t-micro);color:var(--ink-soft)">프리셋은 문법이지 레이아웃이 아닙니다. 같은 아카이브 조판이 3장 연속되면 다시 보세요.</div>
+</section>
+
+<section data-label="38 만드는 순서" data-speaker-notes="비주얼보다 순서가 품질을 만듭니다. 두 번의 사람 확인(제목 스트립·콘택트 시트)이 게이트입니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Workflow</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">제목부터 씁니다, 슬라이드는 나중입니다</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <div style="display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">1</span><span style="font-size:var(--t-body);font-weight:700">브리프</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">목적 · 대상 · 요청할 결정 · 밀도 · 분량 · 가진 근거를 먼저 한 줄씩 적습니다.</span></div>
+    <div style="position:relative;display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="position:absolute;inset:0 -32px;background:var(--brand-tint)"></span><span style="position:relative;font-size:var(--t-sub);font-weight:700;color:var(--mark)">2</span><span style="position:relative;font-size:var(--t-body);font-weight:700">제목 스트립</span><span style="position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:24px"><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">모든 슬라이드 제목을 주장문으로 먼저 씁니다. 제목만 이어 읽어 하나의 논리가 되어야 통과.</span><span style="flex:none;background:#FFFFFF;color:var(--tint-ink);border-radius:999px;padding:8px 16px;line-height:1;font-size:var(--t-micro);font-weight:600;white-space:nowrap">사람 확인 ①</span></span></div>
+    <div style="display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">3</span><span style="font-size:var(--t-body);font-weight:700">회색 프루프</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">색·사진 없이 덩어리만 2~3안 비교해 고릅니다. Tweaks의 &lsquo;회색 프루프&rsquo;를 켜면 바로 확인돼요.</span></div>
+    <div style="display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">4</span><span style="font-size:var(--t-body);font-weight:700">슬라이드 조판</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">승인된 제목과 이 견본집의 레이아웃만 씁니다. 중간에 새 장식을 만들지 않습니다.</span></div>
+    <div style="display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">5</span><span style="font-size:var(--t-body);font-weight:700">사진 배정</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">초안은 빈 자리로 둡니다. 넣을 사진이 없으면 슬롯을 비우지 말고 숫자·인용·표로 바꿔 조판합니다.</span></div>
+    <div style="position:relative;display:grid;grid-template-columns:80px 300px 1fr;gap:28px;padding:34px 0;align-items:baseline"><span style="position:absolute;inset:0 -32px;background:var(--brand-tint)"></span><span style="position:relative;font-size:var(--t-sub);font-weight:700;color:var(--mark)">6</span><span style="position:relative;font-size:var(--t-body);font-weight:700">최종 점검</span><span style="position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:24px"><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">전체 축소 화면으로 리듬을 보고, 슬라이드별 확대 화면으로 디테일을 봅니다. PDF도 같이 확인.</span><span style="flex:none;background:#FFFFFF;color:var(--tint-ink);border-radius:999px;padding:8px 16px;line-height:1;font-size:var(--t-micro);font-weight:600;white-space:nowrap">사람 확인 ②</span></span></div>
+  </div>
+</section>
+
+<section data-label="39 품질 게이트" data-speaker-notes="내보내기 전에 이 목록으로 점검합니다. 하나라도 걸리면 꾸미기 전에 구조를 고칩니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Quality gates</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">내보내기 전 점검 목록</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft);padding-bottom:14px;border-bottom:2px solid var(--ink)">슬라이드 한 장마다</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">제목이 주제 라벨이 아니라 확인 가능한 주장인가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">이 장의 모든 요소가 그 하나의 주장을 받치는가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">시선이 처음 닿는 곳이 하나인가 (포인트 컬러 1회)</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">숫자에 기간 · 단위 · 분모 · 출처가 붙어 있는가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">사진이 정직한 캡션을 가진 증거인가 (언제 · 어디서)</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">잘림 · 넘침이 화면과 PDF 양쪽에서 없는가</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft);padding-bottom:14px;border-bottom:2px solid var(--ink)">덱 전체</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">제목만 이어 읽어 하나의 논리로 읽히고 요청으로 끝나는가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">같은 조판·같은 초점이 3장 연속되지 않는가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">같은 숫자가 슬라이드마다 다르지 않은가</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)">마지막 장에 요청 · 담당 · 시점 · 다음 절차가 있는가</div>
+      <div style="margin-top:12px;background:var(--brand-tint);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--tint-ink)">숫자로 재는 두 가지</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)"><b style="color:var(--ink)">글자 하한</b> · 본문 27px 이상, 라벨·출처 24px 이상 (1920 기준)</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)"><b style="color:var(--ink)">대비</b> · 본문·제목 4.5:1, 보조 라벨 3:1 이상. 옅은 회색은 큰 장식 번호 전용</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="40 색은 의미다" data-speaker-notes="색 사용 규칙. 파란색은 한 장에 한 번만 강조로, 나머지 색은 내용을 구분하는 라벨로만 씁니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-en style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase">Color = meaning</div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">색은 꾸미지 않고 뜻을 나릅니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:48px 32px;align-content:start">
+    <div style="border-top:2px solid var(--ink);padding-top:28px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">1단계 · 강조 (한 장에 한 번)</div>
+      <div style="display:flex;align-items:center;gap:20px"><span style="width:56px;height:56px;border-radius:12px;background:var(--brand)"></span><div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">핵심 숫자 <b style="color:var(--ink)">또는</b> 행동 유도 <b style="color:var(--ink)">또는</b> 구조 강조 — 셋 중 하나만</div></div>
+      <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">모든 제목에 파란 단어를 넣는 건 강조가 아니라 소음입니다. 브랜드 마크는 검정·흰색만.</div>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:28px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">2단계 · 구분 (조용하게, 규칙적으로)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span style="padding:10px 18px;border-radius:999px;background:var(--ch1-bg);color:var(--ch1);font-size:var(--t-micro);font-weight:700">실적</span>
+        <span style="padding:10px 18px;border-radius:999px;background:var(--ch2-bg);color:var(--ch2);font-size:var(--t-micro);font-weight:700">기회</span>
+        <span style="padding:10px 18px;border-radius:999px;background:var(--ch3-bg);color:var(--ch3);font-size:var(--t-micro);font-weight:700">계획</span>
+        <span style="padding:10px 18px;border-radius:999px;background:var(--ch4-bg);color:var(--ch4);font-size:var(--t-micro);font-weight:700">요청</span>
+      </div>
+      <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">챕터 색은 목차에서 한 번 정하고 각 장 라벨에서 반복합니다. 차트 계열색은 직접 라벨과 함께만.</div>
+    </div>
+    <div style="grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+      <div style="border-top:1px solid var(--line);padding-top:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">상태는 색이 아니라 글자로</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <span style="padding:8px 16px;border-radius:10px;background:var(--ok-bg);color:var(--ok-ink);font-size:var(--t-micro);font-weight:700">● 순항</span>
+          <span style="padding:8px 16px;border-radius:10px;background:var(--warn-bg);color:var(--warn-ink);font-size:var(--t-micro);font-weight:700">▲ 주의</span>
+          <span style="padding:8px 16px;border-radius:10px;background:var(--bad-bg);color:var(--bad-ink);font-size:var(--t-micro);font-weight:700">■ 이슈</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--line);padding-top:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">쓰지 않는 것</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">그라데이션 배경 · 무지개 차트 · 반투명 유리 · 색 번짐 그림자 · 이모지 불릿 · 뜻 없는 장식</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-label="41 요약 우선" data-speaker-notes="내부 보고·읽는 문서의 첫 장. 결론 한 문장을 먼저 놓고 근거 3개, 마지막 줄에 결정·담당·기한." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">2026 3분기 전략 리뷰<span data-en> · EXECUTIVE SUMMARY</span></div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">여행 상품을 먼저 키우고 대회는 연 12회로 유지합니다</h2>
+    </div>
+  </div>
+  <div style="background:var(--brand-tint);box-shadow:inset 0 0 0 2px var(--tint-line);border-radius:20px;padding:40px 44px;display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--tint-ink)">권고</div>
+    <p style="margin:0;font-size:var(--t-sub);font-weight:700;line-height:1.34;letter-spacing:-0.024em;text-wrap:pretty">4분기 인력의 절반을 여행 상품 운영에 배치하고, 대회는 규모를 늘리지 않은 채 연 12회로 고정합니다.</p>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">여행이 팀당 매출이 더 큽니다</h3>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">같은 인력으로 대회 1회 대신 여행 4팀을 받으면 지역 소비가 1.6배가 됩니다.</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">대회는 이미 채워집니다</h3>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">최근 2회 모두 모집 2주 내 마감. 규모를 늘려도 신규 유입은 늘지 않았습니다.</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">병목은 일정 제작입니다</h3>
+      <p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">문의에서 확정까지 평균 11일. 일정 페이지 자동화가 가장 빠른 개선점입니다.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:22px;border-top:1px solid var(--line);display:flex;gap:56px;font-size:var(--t-micro);color:var(--ink-soft)"><span><b style="color:var(--ink)">요청할 결정</b> · 4분기 인력 배치안 승인</span><span><b style="color:var(--ink)">담당</b> · 운영</span><span><b style="color:var(--ink)">기한</b> · 9월 15일</span></div>
+</section>
+
+<section data-label="42 증거 · 숫자 + 사실 + 사진" data-speaker-notes="가장 강한 증거 한 장. 큰 숫자 하나, 그 숫자를 지탱하는 사실 3개, 그리고 현장 사진 한 장." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-ch="1" style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ch1)">실적<span data-en> · TRACK RECORD</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">다섯 해 동안 농구를 하러 샘플시에 온 사람들이 있습니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:7fr 5fr;gap:56px;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:32px;justify-content:center">
+      <div>
+        <div style="font-size:var(--t-hero);font-weight:700;line-height:0.95;letter-spacing:-0.04em;color:var(--brand)">4,200<span style="font-size:var(--t-stat);font-weight:700;color:var(--ink);margin-left:14px">명</span></div>
+        <div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft);margin-top:16px">2022~2026 상반기 누적 방문 인원 · 중복 참가 제외</div>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">대회 16회</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">2022년 1회부터 매년 늘려 2026년 상반기까지 누적 16회</span></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">재참가 절반</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">두 번 이상 온 팀이 전체의 48%<span style="display:block;margin-top:6px;font-size:0.94em;color:var(--ink-soft)">한 번 온 팀이 다시 오는 구조라는 뜻입니다</span></span></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:28px;padding:20px 0;align-items:baseline"><span style="font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">외지 비율 9할</span><span style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">참가 팀 연고지 기준 샘플시 외 지역 팀 91%</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;min-height:0">
+      <div style="flex:1;min-height:0;border-radius:20px;overflow:hidden">
+        <image-slot id="proof-evidence" shape="rect" fit="cover" placeholder="증거 사진 · 시상식 또는 경기 전경 (가로)"></image-slot>
+      </div>
+      <div style="padding-top:16px;font-size:var(--t-micro);color:var(--ink-soft)">사진 설명 · 무엇을 · 언제 · 어디서 (예: 제16회 샘플컵 시상식, 2026.05, 샘플시 체육관)</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">샘플 운영 기록 기준 · 2022~2026</div>
+</section>
+
+<section data-label="43 가로 막대 · 직접 라벨" data-speaker-notes="두 범주를 라벨로 구분한 가로 막대. 0에서 시작하고 값은 막대 옆에 직접 적습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-ch="2" style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ch2)">기회<span data-en> · OPPORTUNITY</span></div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">여행 한 팀이 대회 한 팀보다 오래 머뭅니다</h2>
+    </div>
+    <div style="flex:none;font-size:var(--t-micro);color:var(--ink-soft);white-space:nowrap">단위 · 팀당 체류 시간</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:36px">
+    <div style="display:grid;grid-template-columns:210px 1fr;gap:32px;align-items:center">
+      <div style="font-size:var(--t-body);font-weight:700">농구 여행</div>
+      <div style="display:flex;align-items:center;gap:24px"><div style="height:56px;width:62%;background:var(--s1);border-radius:0 8px 8px 0"></div><div style="font-size:var(--t-small);color:var(--ink-mid);white-space:nowrap"><b style="font-size:var(--t-body);color:var(--ink)">26시간</b> · 1박 2일 · 12팀 평균</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:210px 1fr;gap:32px;align-items:center">
+      <div style="font-size:var(--t-body);font-weight:700">대회 참가</div>
+      <div style="display:flex;align-items:center;gap:24px"><div style="height:56px;width:26%;background:var(--s2);border-radius:0 8px 8px 0"></div><div style="font-size:var(--t-small);color:var(--ink-mid);white-space:nowrap"><b style="font-size:var(--t-body);color:var(--ink)">11시간</b> · 당일 · 118팀 평균</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:210px 1fr;gap:32px;align-items:center">
+      <div style="font-size:var(--t-body);font-weight:700;color:var(--ink-soft)">일반 원정 경기</div>
+      <div style="display:flex;align-items:center;gap:24px"><div style="height:56px;width:14%;background:var(--ctx);border-radius:0 8px 8px 0"></div><div style="font-size:var(--t-small);color:var(--ink-mid);white-space:nowrap"><b style="font-size:var(--t-body);color:var(--ink)">6시간</b> · 비교용</div></div>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">샘플 운영 기록 기준 · 2026 상반기 · 도착~출발 시각 집계 (예시 수치, 실제 값으로 교체)</div>
+</section>
+
+<section data-label="44 유닛 도트 · 빈도" data-speaker-notes="횟수·빈도는 막대보다 낱개 표시가 정확합니다. 하나가 한 회를 뜻하게 두세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-ch="1" style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ch1)">실적<span data-en> · FREQUENCY</span></div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">개최 횟수는 해마다 한 번씩 늘었습니다</h2>
+    </div>
+    <div style="flex:none;font-size:var(--t-micro);color:var(--ink-soft);white-space:nowrap">낱개 하나 · 대회 1회</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:34px">
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center"><div style="font-size:var(--t-body);font-weight:700">2023</div><div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="margin-left:16px;font-size:var(--t-small);color:var(--ink-mid)">2회</span></div></div>
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center"><div style="font-size:var(--t-body);font-weight:700">2024</div><div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="margin-left:16px;font-size:var(--t-small);color:var(--ink-mid)">3회</span></div></div>
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center"><div style="font-size:var(--t-body);font-weight:700">2025</div><div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--ctx)"></span><span style="margin-left:16px;font-size:var(--t-small);color:var(--ink-mid)">4회</span></div></div>
+    <div style="display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center"><div style="font-size:var(--t-body);font-weight:700">2026</div><div style="display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="width:52px;height:52px;border-radius:10px;background:var(--brand)"></span><span style="margin-left:16px;font-size:var(--t-small);color:var(--ink-mid)"><b style="color:var(--ink)">6회</b> · 상반기까지</span></div></div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">샘플 운영 기록 기준 · 2023~2026 상반기</div>
+</section>
+
+<section data-label="45 연혁 · 지금 강조" data-speaker-notes="연도별 성과 타임라인. 지금 결정을 요청하는 구간 하나만 파란색으로 둡니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-ch="3" style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ch3)">계획<span data-en> · WHERE WE ARE</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">대회로 시작해 여행으로 넓히는 중입니다</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:40px;padding:24px 0;border-bottom:1px solid var(--line);align-items:start"><div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.2">2022</div><div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)"><b style="font-size:var(--t-body);color:var(--ink)">첫 대회를 열었습니다</b><span style="display:block;margin-top:8px">참가 12팀 · 자체 예산으로 1회 개최</span></div></div>
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:40px;padding:24px 0;border-bottom:1px solid var(--line);align-items:start"><div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.2">2024</div><div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)"><b style="font-size:var(--t-body);color:var(--ink)">재참가 팀이 절반을 넘었습니다</b><span style="display:block;margin-top:8px">연 3회 개최 · 숙박 연계 시작 · 참가 67팀</span></div></div>
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:40px;padding:24px 0;border-bottom:1px solid var(--line);align-items:start"><div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.2;color:var(--brand)">2026</div><div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)"><b style="font-size:var(--t-body);color:var(--ink)">여행 상품을 열고 지금 이 결정을 기다립니다</b><span style="display:block;margin-top:8px">팀 단위 주말 방문 12팀 시범 운영 · 체육관 대관 협의 필요</span></div></div>
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:40px;padding:24px 0;align-items:start"><div style="font-size:var(--t-sub);font-weight:700;letter-spacing:-0.03em;line-height:1.2;color:var(--ink-soft)">2027</div><div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid)"><b style="font-size:var(--t-body);color:var(--ink)">상시 운영으로 넘어갑니다</b><span style="display:block;margin-top:8px">월 2팀 이상 정기 방문 · 지역 업체 정산 체계 정착</span></div></div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">샘플 운영 기록 기준 · 2027년 항목은 계획</div>
+</section>
+
+<section data-label="46 옵션 3안 비교" data-speaker-notes="선택지를 기준(행)으로 비교합니다. 권고안 열만 파란 tint + 헤더 강조." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">이슈 1 · 여행 일정 제작<span data-en> · OPTIONS</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">직접 제작을 유지하되 템플릿을 먼저 만듭니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:220px 1fr 1fr 1fr;grid-template-rows:auto repeat(4,1fr);border-top:2px solid var(--ink)">
+    <div style="display:flex;align-items:center;padding:20px 24px 20px 0;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">기준</div>
+    <div style="display:flex;align-items:center;padding:20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">A · 지금처럼 전부 직접</div>
+    <div style="display:flex;align-items:center;padding:20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--brand);background:var(--tint-weak);border-bottom:1px solid var(--line)">B · 템플릿 + 직접 마감 (권고)</div>
+    <div style="display:flex;align-items:center;padding:20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">C · 외주 제작</div>
+    <div style="display:flex;align-items:center;padding:22px 24px 22px 0;font-size:var(--t-micro);font-weight:700;color:var(--ink-soft);border-bottom:1px solid var(--line)">한 팀당 제작 시간</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">평균 11일</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;font-weight:600;background:var(--tint-weak);border-bottom:1px solid var(--line)">평균 4일</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">평균 6일 (대기 포함)</div>
+    <div style="display:flex;align-items:center;padding:22px 24px 22px 0;font-size:var(--t-micro);font-weight:700;color:var(--ink-soft);border-bottom:1px solid var(--line)">추가 비용</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">없음</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;font-weight:600;background:var(--tint-weak);border-bottom:1px solid var(--line)">초기 제작 2주</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">팀당 15만 원</div>
+    <div style="display:flex;align-items:center;padding:22px 24px 22px 0;font-size:var(--t-micro);font-weight:700;color:var(--ink-soft);border-bottom:1px solid var(--line)">품질 통제</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">완전히 우리 손</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;font-weight:600;background:var(--tint-weak);border-bottom:1px solid var(--line)">마감만 우리 손</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">검수 필요</div>
+    <div style="display:flex;align-items:center;padding:22px 24px 22px 0;font-size:var(--t-micro);font-weight:700;color:var(--ink-soft)">가장 큰 위험</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">문의가 늘면 바로 막힙니다</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;font-weight:600;background:var(--tint-weak)">템플릿이 획일적으로 보일 수 있음</div>
+    <div style="display:flex;align-items:center;padding:22px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">현장 맥락이 빠집니다</div>
+  </div>
+</section>
+
+<section data-label="47 바텀업 산식" data-speaker-notes="시장이나 예산을 위에서 내려오는 큰 숫자 대신 곱셈으로 보여줍니다. 모르는 값은 모른다고 적습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">시장 규모<span data-en> · BOTTOM-UP</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">닿을 수 있는 팀 수에서 거꾸로 계산합니다</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:48px">
+    <div style="display:flex;align-items:baseline;gap:36px;flex-wrap:wrap;row-gap:40px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">1,200</div><div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">호남권 등록 동호회 팀</div></div>
+      <div style="font-size:var(--t-stat-sm);font-weight:500;color:var(--mark);line-height:1.2">×</div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">8%</div><div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">연 1회 원정 여행 의향</div></div>
+      <div style="font-size:var(--t-stat-sm);font-weight:500;color:var(--mark);line-height:1.2">×</div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">186만</div><div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">팀당 지역 소비액</div></div>
+      <div style="font-size:var(--t-stat-sm);font-weight:500;color:var(--mark);line-height:1.2">=</div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1;color:var(--brand)">18억</div><div style="font-size:var(--t-micro);font-weight:600;color:var(--ink-soft)">연간 도달 가능 규모</div></div>
+    </div>
+    <div style="margin-top:8px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">아직 모르는 값</div>
+      <div style="font-size:var(--t-small);line-height:1.55;color:var(--ink-mid);max-width:1200px">원정 여행 의향 8%는 12팀 시범 운영에서 얻은 값입니다. 표본이 작아 하반기 30팀 접촉으로 다시 재고, 팀당 소비액은 업체 정산 자료로 검증합니다.</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">가상 시장 규모 자료 · 샘플 시범 운영 기록 (예시 수치, 실제 값으로 교체)</div>
+</section>
+
+<section data-label="48 리스크 · 가정" data-speaker-notes="위험은 담당과 신호가 있어야 관리됩니다. 전부 '낮음'으로 칠하지 마세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">리스크와 가정<span data-en> · RISKS</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">가장 큰 위험은 체육관 일정입니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1.3fr 0.8fr 1.4fr 0.9fr;grid-template-rows:auto repeat(3,1fr);border-top:2px solid var(--ink)">
+    <div style="display:flex;align-items:center;padding:20px 24px 20px 0;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">위험</div>
+    <div style="display:flex;align-items:center;padding:20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">가능성 · 영향</div>
+    <div style="display:flex;align-items:center;padding:20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">대응</div>
+    <div style="display:flex;align-items:center;padding:20px 0 20px 24px;font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em;color:var(--ink-soft);border-bottom:1px solid var(--line)">담당 · 신호</div>
+    <div style="display:flex;align-items:center;padding:24px 24px 24px 0;font-size:var(--t-small);line-height:1.5;border-bottom:1px solid var(--line)"><b>주말 체육관 대관이 겹칩니다</b></div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">높음 · 큼</div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">분기 단위 선점 협의 + 대체 체육관 2곳 확보</div>
+    <div style="display:flex;align-items:center;padding:24px 0 24px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">운영 · 대관 거절 2건 발생 시</div>
+    <div style="display:flex;align-items:center;padding:24px 24px 24px 0;font-size:var(--t-small);line-height:1.5;border-bottom:1px solid var(--line)"><b>업체 응대 품질이 고르지 않습니다</b></div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">중간 · 중간</div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">방문 후 팀 설문 상시 수집, 2회 연속 불만 시 코스 제외</div>
+    <div style="display:flex;align-items:center;padding:24px 0 24px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);border-bottom:1px solid var(--line)">제휴 · 만족도 4.0 미만</div>
+    <div style="display:flex;align-items:center;padding:24px 24px 24px 0;font-size:var(--t-small);line-height:1.5"><b>여행 의향 8%가 과대일 수 있습니다</b></div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">중간 · 큼</div>
+    <div style="display:flex;align-items:center;padding:24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">하반기 30팀 접촉으로 재측정, 5% 밑이면 대회 중심으로 회귀</div>
+    <div style="display:flex;align-items:center;padding:24px 0 24px 24px;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">대표 · 10월 재측정 결과</div>
+  </div>
+</section>
+
+<section data-label="49 KPI · 목표 대비" data-speaker-notes="정의를 회의마다 바꾸지 않습니다. 상태는 색이 아니라 글자로 함께 적습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">2026.07 기준<span data-en> · KPI</span></div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">방문 인원은 목표를 넘었고 여행 확정은 밀렸습니다</h2>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-content:center">
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--ink-soft)">상반기 방문 인원</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">1,740</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-mid)">목표 1,500 · 116%</div>
+      <span style="align-self:flex-start;padding:8px 16px;border-radius:10px;background:var(--ok-bg);color:var(--ok-ink);font-size:var(--t-micro);font-weight:700">● 순항</span>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--ink-soft)">여행 확정 팀</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">12</div>
+      <div style="font-size:var(--t-micro);color:var(--ink-mid)">목표 20 · 60%</div>
+      <span style="align-self:flex-start;padding:8px 16px;border-radius:10px;background:var(--warn-bg);color:var(--warn-ink);font-size:var(--t-micro);font-weight:700">▲ 주의</span>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--ink-soft)">문의 → 확정 소요</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">11<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">일</span></div>
+      <div style="font-size:var(--t-micro);color:var(--ink-mid)">목표 5일 이내</div>
+      <span style="align-self:flex-start;padding:8px 16px;border-radius:10px;background:var(--bad-bg);color:var(--bad-ink);font-size:var(--t-micro);font-weight:700">■ 이슈</span>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:var(--t-micro);font-weight:700;color:var(--ink-soft)">재참가 팀 비율</div>
+      <div style="font-size:var(--t-stat);font-weight:700;letter-spacing:-0.032em;line-height:1">48<span style="font-size:var(--t-lead);font-weight:600;margin-left:6px">%</span></div>
+      <div style="font-size:var(--t-micro);color:var(--ink-mid)">목표 45% · 유지</div>
+      <span style="align-self:flex-start;padding:8px 16px;border-radius:10px;background:var(--ok-bg);color:var(--ok-ink);font-size:var(--t-micro);font-weight:700">● 순항</span>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">정의 고정 · 방문 인원은 중복 제외, 확정은 계약금 입금 기준 · 샘플 운영 기록</div>
+</section>
+
+<section data-label="50 지금 → 앞으로" data-speaker-notes="문제와 해법을 한 화면에. 오른쪽만 어둡게 두어 색이 아니라 명도로 강조합니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">문제와 해법<span data-en> · BEFORE &amp; AFTER</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">경기만 하고 돌아가던 원정을 1박 2일로 바꿉니다</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 90px 1fr;gap:12px;align-items:stretch">
+    <div style="box-shadow:inset 0 0 0 2px var(--line);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:var(--ink-soft)">지금</div>
+      <h3 style="margin:0;font-size:var(--t-sub);font-weight:700;letter-spacing:-0.024em;line-height:1.3">팀이 알아서 찾고, 하루 만에 떠납니다</h3>
+      <div style="display:flex;flex-direction:column;margin-top:8px">
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);padding:16px 0">체육관 대관 문의를 팀이 직접 여러 곳에 넣습니다</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);padding:16px 0;border-top:1px solid var(--line)">숙소·식당은 각자 검색해서 흩어집니다</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:var(--ink-mid);padding:16px 0;border-top:1px solid var(--line)">경기 끝나면 지역에 돈이 남지 않습니다</div>
+      </div>
+    </div>
+    <div style="align-self:center;text-align:center;font-size:var(--t-stat-sm);color:var(--mark)">→</div>
+    <div style="background:#171719;color:#FFFFFF;border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.1em;color:#4C8DFF">앞으로</div>
+      <h3 style="margin:0;font-size:var(--t-sub);font-weight:700;letter-spacing:-0.024em;line-height:1.3">체육관부터 온천·장어까지 한 번에 정리해 드립니다</h3>
+      <div style="display:flex;flex-direction:column;margin-top:8px">
+        <div style="font-size:var(--t-small);line-height:1.5;color:rgba(255,255,255,0.82);padding:16px 0">대관 가능한 날짜를 먼저 잡아 팀에 제시합니다</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:rgba(255,255,255,0.82);padding:16px 0;border-top:1px solid rgba(255,255,255,0.18)">팀별 일정 페이지에 코스와 연락처를 모아 드려요</div>
+        <div style="font-size:var(--t-small);line-height:1.5;color:rgba(255,255,255,0.82);padding:16px 0;border-top:1px solid rgba(255,255,255,0.18)">예약과 결제는 각 업체에 직접 진행합니다</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="51 여정 비트" data-speaker-notes="실제 순서가 있을 때만 번호를 씁니다. 각 줄은 동작으로 시작하세요." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:34px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ink-soft)">샘플시 농구 여행<span data-en> · ITINERARY</span></div>
+      <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">토요일 오후에 도착해 일요일 점심에 떠나는 일정이에요</h2>
+    </div>
+    <div style="font-size:var(--t-micro);color:var(--ink-soft)">1박 2일 · 10~15명 기준</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <div style="display:grid;grid-template-columns:76px 1fr;gap:32px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">1</span><div><h3 style="margin:0 0 8px;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">토요일 15시, 체육관에 바로 들어갑니다</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">샘플시 체육관 2시간 대관 · 샤워실 이용 가능</p></div></div>
+    <div style="display:grid;grid-template-columns:76px 1fr;gap:32px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">2</span><div><h3 style="margin:0 0 8px;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">저녁은 장어거리에서 팀 회식으로</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">단체석 있는 3곳 중 골라 드려요 · 예약은 팀이 직접</p></div></div>
+    <div style="display:grid;grid-template-columns:76px 1fr;gap:32px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">3</span><div><h3 style="margin:0 0 8px;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">숙소 가기 전에 온천에서 몸을 풉니다</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">샘플 온천호텔 · 단체 할인 적용 가능</p></div></div>
+    <div style="display:grid;grid-template-columns:76px 1fr;gap:32px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">4</span><div><h3 style="margin:0 0 8px;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">일요일 오전, 원하면 한 게임 더</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">지역 팀과의 친선 경기를 붙여 드릴 수 있어요</p></div></div>
+    <div style="display:grid;grid-template-columns:76px 1fr;gap:32px;padding:15px 0;align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">5</span><div><h3 style="margin:0 0 8px;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">점심과 복분자 한 상자로 마무리</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">돌아가는 길에 들를 수 있는 곳까지 일정에 적어 드려요</p></div></div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">예약과 결제는 각 업체에 직접 진행해요. 샘플은 일정과 연결을 맡습니다.</div>
+</section>
+
+<section data-label="52 요청 · 다음 절차" data-speaker-notes="마지막 장. 무엇을 · 누가 · 언제 · 다음 무엇을 남깁니다. '감사합니다'로 끝내지 않습니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:var(--gap-title)">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div data-ch="4" style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.1em;color:var(--ch4)">요청<span data-en> · THE ASK</span></div>
+    <h2 style="margin:0;font-size:var(--t-title);font-weight:700;letter-spacing:-0.032em;line-height:1.2">세 가지를 요청드립니다</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:2px solid var(--ink)">
+    <div style="display:grid;grid-template-columns:70px 380px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">1</span><h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">체육관 주말 대관 우선 배정</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">분기 시작 전 2개 주말을 선점할 수 있도록 협의를 요청합니다.</p></div>
+    <div style="display:grid;grid-template-columns:70px 380px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">2</span><h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">지역 업체 연결 창구 지정</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">숙박·식당 협의를 한 곳에서 받을 수 있는 담당 부서를 지정해 주세요.</p></div>
+    <div style="display:grid;grid-template-columns:70px 380px 1fr;gap:32px;padding:24px 0;align-items:baseline"><span style="font-size:var(--t-sub);font-weight:700;color:var(--mark)">3</span><h3 style="margin:0;font-size:var(--t-body);font-weight:700;letter-spacing:-0.02em">방문 데이터 공동 집계</h3><p style="margin:0;font-size:var(--t-small);line-height:1.5;color:var(--ink-mid)">팀 수·인원·숙박 전환을 같은 정의로 집계해 분기마다 공유합니다.</p></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:28px;margin-top:8px">
+    <span style="background:var(--brand);color:#FFFFFF;font-weight:700;font-size:var(--t-body);padding:20px 40px;border-radius:14px">9월 중 실무 협의</span>
+    <span style="font-size:var(--t-small);color:var(--ink-mid)">담당 부서 지정 후 1회 미팅으로 대관 일정과 집계 정의를 확정합니다</span>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:var(--t-micro);color:var(--ink-soft)">근거 · 해당 지자체 생활체육 진흥 조례 (조항 번호를 실제 값으로 교체)</div>
+</section>
+
+<section data-label="53 한 줄 · 다크" data-speaker-notes="키노트 오프닝이나 클로징. 한 화면에 한 생각만. 장식 없이 타이포만 씁니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#171719;color:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:44px">
+  <div style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.12em;color:#4C8DFF">제17회 샘플시 샘플컵 농구대회 · 개회</div>
+  <h1 style="margin:0;font-size:var(--t-jumbo);font-weight:700;letter-spacing:-0.035em;line-height:1.1;max-width:1500px;text-wrap:balance">농구 하러 왔다가<br>샘플시를 알고 갑니다</h1>
+  <p style="margin:0;font-size:var(--t-lead);line-height:1.5;color:rgba(255,255,255,0.82);max-width:1200px">열여섯 번의 대회, 4,200명. 오늘은 열일곱 번째입니다.</p>
+</section>
+
+<section data-label="54 한 줄 정의 표지" data-speaker-notes="투자·소개 자리의 첫 장. 회사를 한 문장으로 정의하고, 강조는 핵심어 하나에만." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;justify-content:center;gap:44px">
+  <div style="display:flex;align-items:center;gap:20px">
+    <img src="../../../shared/sample-logo.svg" alt="샘플 심볼" style="width:52px;height:52px">
+    <span style="font-size:var(--t-micro);font-weight:700;letter-spacing:0.08em">샘플<span data-en style="font-family:var(--font-display)"> Sample Studio</span></span>
+  </div>
+  <h1 style="margin:0;font-size:var(--t-display);font-weight:700;letter-spacing:-0.035em;line-height:1.12;max-width:1560px;text-wrap:balance">동호인 농구로 <span style="color:var(--brand)">사람을 지역으로</span> 옮기는 회사입니다</h1>
+  <p style="margin:0;font-size:var(--t-lead);line-height:1.5;color:var(--ink-mid);max-width:1200px">대회와 팀 단위 여행, 두 가지 방법으로 샘플지역 샘플시에 올 이유를 만듭니다.</p>
+  <div style="margin-top:auto;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:var(--t-micro);color:var(--ink-soft)"><span>2026년 7월</span><span>대표 담당자 A · hello@example.com</span></div>
+</section>
+
+<section data-label="55 표지 · 주장형" data-speaker-notes="제안서 표지. 문서 제목 대신 이 제안이 무엇을 하겠다는 것인지 한 문장으로 씁니다." style="box-sizing:border-box;height:100%;padding:var(--pad-t) var(--pad-x) var(--pad-b);background:#FFFFFF;display:flex;flex-direction:column;gap:44px">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="font-size:var(--t-micro);font-weight:600;letter-spacing:0.08em;color:var(--ink-soft)">샘플시 정책 제안 · 2026.07</span>
+    <img src="../../../shared/sample-logo.svg" alt="샘플 Sample Studio" style="width:170px">
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:36px">
+    <h1 style="margin:0;font-size:var(--t-headline);font-weight:700;letter-spacing:-0.035em;line-height:1.16;max-width:1560px;text-wrap:balance">주말 체육관 두 곳으로 연 240팀을 샘플시에 데려오겠습니다</h1>
+    <p style="margin:0;font-size:var(--t-lead);line-height:1.5;color:var(--ink-mid);max-width:1300px">동호인 농구 대회와 팀 단위 여행을 묶어 방문·숙박·소비를 한 흐름으로 만드는 제안입니다.</p>
+  </div>
+  <div style="padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;font-size:var(--t-micro);color:var(--ink-soft)"><span>제안 · Sample Studio</span><span>대표 담당자 A · 010-0000-0000 · hello@example.com</span></div>
+</section>
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0066FF&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0066FF&quot;,&quot;#0054D1&quot;,&quot;#171719&quot;,&quot;#00BF40&quot;],&quot;section&quot;:&quot;테마&quot;},&quot;typeScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.85,&quot;max&quot;:1.15,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;테마&quot;},&quot;frameDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.8,&quot;max&quot;:1.2,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;테마&quot;},&quot;showEnglish&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;테마&quot;},&quot;chapterIdentity&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;덱 문법&quot;},&quot;grayscaleProof&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;덱 문법&quot;}}">
+class Component extends DCLogic {
+  applyTweaks() {
+    const r = document.documentElement.style;
+    r.setProperty('--brand', this.props.accentColor ?? '#0066FF');
+    const s = this.props.typeScale ?? 1;
+    const base = { '--t-display': 104, '--t-title': 64, '--t-sub': 44, '--t-lead': 38, '--t-body': 32, '--t-small': 27, '--t-micro': 24 };
+    for (const k in base) r.setProperty(k, Math.round(base[k] * s) + 'px');
+    const p = this.props.frameDensity ?? 1;
+    r.setProperty('--pad-x', Math.round(110 * p) + 'px');
+    r.setProperty('--pad-t', Math.round(92 * p) + 'px');
+    r.setProperty('--pad-b', Math.round(76 * p) + 'px');
+    let st = document.getElementById('__sample-studio-deck-tweaks');
+    if (!st) { st = document.createElement('style'); st.id = '__sample-studio-deck-tweaks'; document.head.appendChild(st); }
+    let css = '';
+    if ((this.props.showEnglish ?? true) === false) css += '[data-en]{display:none !important}';
+    if ((this.props.chapterIdentity ?? true) === false) css += '[data-ch]{color:var(--ink-soft) !important}';
+    if (this.props.grayscaleProof) css += 'deck-stage{filter:grayscale(1)}';
+    st.textContent = css;
+  }
+  componentDidMount() { this.applyTweaks(); }
+  componentDidUpdate() { this.applyTweaks(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

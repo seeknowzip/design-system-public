@@ -1,12 +1,15 @@
-# Public snapshot changes
+# 공개본 변경 사항
 
-Prepared on 2026-09-08 from the current local workspace, without its Git history.
+2026-09-08 개인 작업 공간에서 과거 Git 이력 없이 분리한 공개 스냅샷입니다.
 
-- Preserved Montage-derived neutral source, tests, usage docs, and MIT copyright notice.
-- Preserved the local task-first skill and product/marketing/admin composition guidance.
-- Generalized five local helpers as private `@local/design`: Gradient, Icon, StatRow, MarketingHero, and ItineraryTimeline. Removed the brand font override from MarketingHero; it uses foundation typography.
-- Excluded private brand assets and symbols, customer materials, personal logs, original docs application, MCP source, visual screenshots, and local tooling state. Separate content/deck repositories are not included.
-- Simplified the workspace build to dependency-ordered pnpm scripts. All packages are private; preserved `@wanteddev/*` names are not registry publication targets.
-- Replaced internal adoption pointers with generic Korean onboarding and explicit scope boundaries.
+- Montage 기반의 중립적인 소스·테스트·사용 문서와 MIT 저작권 고지를 보존했습니다.
+- 작업 목적부터 판단하는 UI 스킬과 제품·마케팅·관리자 화면 구성 지침을 보존했습니다.
+- Gradient, Icon, StatRow, MarketingHero, ItineraryTimeline을 private `@local/design`의 범용 컴포넌트로 정리했습니다. MarketingHero의 개인 브랜드 글꼴 재정의를 제거하고 공통 타이포그래피를 사용합니다.
+- 콘텐츠와 덱을 `skills/` 아래 독립 스킬로 포함했습니다. 기존 템플릿의 규격·구성·검수 절차를 유지하며 공통 디자인 자산 참조를 저장소 내부 경로로 바꿨습니다.
+- `shared/`에 토큰 연결과 Sample Studio 임시 로고를 두고, 빌드 시 `LOCALDS` 브라우저 번들을 생성하도록 했습니다.
+- 개인 브랜드·고객 자료·실제 사진·개인 기록·원본 문서 애플리케이션·MCP 소스·로컬 도구 상태를 제외했습니다. 템플릿의 브랜드와 식별 가능한 예시를 샘플로 교체했습니다.
+- Claude Design 내보내기 실행 파일의 기존 헤더를 보존하고 제3자 조건을 별도로 고지했습니다. 루트 MIT로 일괄 재허가하지 않습니다.
+- 의존성 순서에 따라 pnpm으로 빌드하고 저장소 루트에서 미리보기를 실행하도록 정리했습니다. 모든 패키지는 private이며 `@wanteddev/*` 식별자는 레지스트리 배포 대상이 아닙니다.
+- 한국어 README에 세 용도의 시작 방법, 선택적 스킬 등록, 사본 제작과 내보내기 범위를 명시했습니다.
 
-This snapshot is not identical to current upstream. Local checks do not establish superior design outcomes or validate a consumer application's accessibility and visual behavior.
+이 스냅샷은 현재 upstream과 동일하지 않습니다. 구조 보존과 로컬 검증은 모든 작업에서 더 좋은 디자인 결과가 나온다는 보장이나 사용자 앱의 접근성·실사용 검증을 대신하지 않습니다.

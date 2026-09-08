@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">Sample Studio placeholder logo</title>
+  <rect x="8" y="8" width="144" height="144" rx="36" fill="#0066ff"/>
+  <path d="M108 52H65a15 15 0 0 0 0 30h30a15 15 0 0 1 0 30H52" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+</svg>

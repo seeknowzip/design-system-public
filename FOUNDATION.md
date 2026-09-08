@@ -1,19 +1,21 @@
-# Foundation
+# 기반과 확장 경계
 
-This is an independent public snapshot of a locally adapted design-system workspace. The neutral foundation came from [Wanted Montage](https://github.com/wanteddev/montage-web) at revision `bfced87f96dfb21c8ea80074c551b64b9ed1530b`. It is not an official Wanted release and does not automatically track upstream updates.
+이 저장소는 로컬에서 활용하던 디자인 기반을 독립적으로 공개한 스냅샷입니다. 원본은 [Wanted Montage](https://github.com/wanteddev/montage-web)의 `bfced87f96dfb21c8ea80074c551b64b9ed1530b` 리비전이며, Wanted의 공식 배포도 원본 업데이트를 자동 추적하는 미러도 아닙니다.
 
-The current source, types, tests, and `docs/data` are the operational reference. Generic tokens, components, accessibility behavior, and typography belong in the foundation. Put consumer-specific branding, business vocabulary, and page recipes in a consumer extension. Reusable local composition guidance lives in `guidance/`; optional generic components live in `packages/local-design`.
+현재 포함된 소스·타입·테스트와 `docs/data`를 구현 기준으로 삼습니다. 공통 토큰·컴포넌트·접근성 동작·타이포그래피는 기반 영역에 속합니다. 개별 브랜드와 업무 용어, 전용 화면 구성은 사용 프로젝트의 확장 영역에 둡니다. 재사용 가능한 구성 지침은 `guidance/`, 추가 컴포넌트는 `packages/local-design/`에 있습니다.
 
-## License
+## 세 스킬의 관계
 
-Preserve `LICENSE.md`, including Wanted Lab's copyright notice, when redistributing substantial portions. See `THIRD_PARTY_NOTICES.md` for scope and `MODIFICATIONS.md` for changes. Attribution does not imply endorsement.
+루트 `SKILL.md`는 웹·앱 UI를 담당합니다. `skills/content-system/`은 소셜 이미지의 구성·규격·검수를, `skills/deck-system/`은 발표 자료의 구성·조판·검수를 담당합니다. 공통 토큰과 브라우저 번들은 `shared/`에서 연결합니다. 한 저장소에 담겨 있어도 각 스킬의 제작·검수 계약을 대체하거나 합치지 않습니다.
 
-## Package identifiers and consumers
+템플릿의 Sample Studio와 임시 로고는 교체 가능한 예시입니다. 실제 브랜드 자료와 고객 작업물, 개인 기록, 원본 문서 웹 애플리케이션, MCP 서버는 제외했습니다. 슬라이드는 HTML 기반이며 네이티브 PPTX 자동 변환기는 포함하지 않습니다.
 
-`@wanteddev/*` names remain internal `workspace:*` identifiers to preserve source imports. All included packages are private and must not be published under that scope. Install and build locally; there is no dependency on Wanted's private registry.
+## 라이선스와 패키지 이름
 
-The snapshot excludes private brand extensions, the original documentation web application, MCP server, and separate content/deck template repositories. A slide or social-content workflow may reuse the visual foundation, but this repository does not supply those templates or export a PPT file.
+상당 부분을 재배포할 때 Wanted Lab의 저작권 고지가 포함된 `LICENSE.md`를 보존하세요. 자체 추가분과 Claude Design 내보내기 실행 파일·글꼴 등 제3자 자료의 조건은 `THIRD_PARTY_NOTICES.md`에서 구분합니다. 출처 표기는 원 저작자의 후원을 의미하지 않습니다.
 
-## Decision precedence
+`@wanteddev/*` 이름은 기존 소스 import를 유지하기 위한 내부 `workspace:*` 식별자입니다. 포함된 패키지는 모두 private이며 해당 scope로 레지스트리에 배포하지 않습니다. 로컬 설치·빌드를 사용하고 Wanted의 비공개 레지스트리에 의존하지 않습니다.
 
-Use current local code and platform/design guidance, then component types and tests, then consumer extension decisions. An extension may narrow usage but must not silently redefine a foundation token or component.
+## 판단 우선순위
+
+현재 로컬 코드와 디자인·플랫폼 지침, 컴포넌트 타입과 테스트, 프로젝트 확장 결정을 순서대로 확인합니다. 확장에서 사용 범위를 좁힐 수는 있지만 공통 토큰이나 컴포넌트의 의미를 조용히 바꾸지 않습니다.

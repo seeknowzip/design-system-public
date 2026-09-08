@@ -1,0 +1,36 @@
+/* Shared foundation plus legacy template aliases. */
+@import url('../../shared/tokens.css');
+
+:root {
+  --sample-font-text:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', sans-serif;
+  --sample-font-display:
+    'Wanted Sans Variable', 'Wanted Sans', 'Pretendard Variable', Pretendard,
+    -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-sans: var(--sample-font-text);
+  --font-display: var(--sample-font-display);
+  --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
+
+  --background-normal-normal: var(--semantic-background-normal-normal);
+  --background-normal-alternative: var(--semantic-background-normal-alternative);
+  --background-elevated-normal: var(--semantic-background-elevated-normal);
+  --label-normal: var(--semantic-label-normal);
+  --label-strong: var(--semantic-label-strong);
+  --label-alternative: var(--semantic-label-alternative);
+  --label-assistive: var(--semantic-label-assistive);
+  --line-normal-neutral: var(--semantic-line-normal-neutral);
+  --fill-strong: var(--semantic-fill-strong);
+  --primary-normal: var(--semantic-primary-normal);
+  --primary-strong: var(--semantic-primary-strong);
+  --static-white: var(--semantic-static-white);
+  --status-positive: var(--semantic-status-positive);
+  --status-cautionary: var(--semantic-status-cautionary);
+  --status-negative: var(--semantic-status-negative);
+  --shadow-normal: var(--semantic-elevation-shadow-normal-small);
+  --shadow-strong: var(--semantic-elevation-shadow-normal-large);
+  --radius-lg: 12px;
+  --radius-round: 999px;
+}

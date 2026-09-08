@@ -1,7 +1,7 @@
 # Local Design System
 
-This repository is also the `local-design-system` skill. Read `SKILL.md` for design work and `FOUNDATION.md` for attribution and extension boundaries.
+The root `SKILL.md` owns web/app UI work. Content and slides use `skills/content-system/SKILL.md` and `skills/deck-system/SKILL.md`; their production and QA contracts remain independent. Read `FOUNDATION.md` for attribution and extension boundaries.
 
-Keep project-specific brand and domain decisions in a consumer-owned extension. The neutral foundation lives in `packages/wds*`; reusable local additions live in `packages/local-design` and `guidance/`.
+Keep project-specific brands and domain decisions in consumer-owned extensions. The neutral foundation lives in `packages/wds*`; reusable additions live in `packages/local-design` and `guidance/`. Templates consume `shared/` through relative paths; keep those links valid in deliverable copies and preserve canonical templates.
 
-Build and test with `pnpm build`, `pnpm test:unit`, and `pnpm lint`. Package names under `@wanteddev/*` are private workspace identifiers, not publication targets.
+`pnpm build` builds packages and `shared/local-design.global.js`; `pnpm preview` serves the repository root. Test with `pnpm test:unit` and `pnpm lint`, then verify changed templates at their actual export dimensions. Package names under `@wanteddev/*` are private workspace identifiers, not registry publication targets. Third-party runtime and font terms are scoped in `THIRD_PARTY_NOTICES.md`, not overridden by the root license.
