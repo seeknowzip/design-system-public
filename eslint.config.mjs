@@ -242,8 +242,6 @@ export default defineConfig(
     '**/node_modules',
     '**/dist',
     'packages/**/bin',
-    'packages/the-only-design/browser',
-    'packages/the-only-design/scripts',
     'docs/src/data.json',
     'docs/next-env.d.ts',
     'docs/.next',
