@@ -1,0 +1,9 @@
+packages:
+  - packages/*
+
+enablePrePostScripts: true
+engineStrict: true
+onlyBuiltDependencies:
+  - esbuild
+  - nx
+  - unrs-resolver

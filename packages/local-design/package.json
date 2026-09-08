@@ -1,0 +1,51 @@
+{
+  "name": "@local/design",
+  "version": "0.1.0",
+  "description": "Optional generic helpers for the local design foundation",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --noEmit && tsdown",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@wanteddev/wds": "workspace:*",
+    "@wanteddev/wds-engine": "workspace:*",
+    "@wanteddev/wds-icon": "workspace:*"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.0 || ^19.0.0",
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "esbuild": "0.25.12",
+    "react": "^19.2.4",
+    "react-dom": "19.2.4",
+    "typescript": "^5.9.3"
+  },
+  "private": true
+}
